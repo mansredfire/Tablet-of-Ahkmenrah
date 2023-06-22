@@ -1,6 +1,5 @@
 import subprocess
 import os
-import psycopg2
 import logging
 
 # Configure logging
@@ -37,28 +36,6 @@ def read_results(file_path):
         data = file.read()
     return data
 
-# Function to export data to PostgreSQL table
-def export_to_postgres(data, table_name):
-    conn = psycopg2.connect(
-        host="localhost",
-        database="Amazon Results",
-        user="postgres",
-        password="django"
-    )
-    cursor = conn.cursor()
-
-    # Create table if it doesn't exist
-    create_table_query = f'CREATE TABLE IF NOT EXISTS "{table_name}" (data text)'
-    cursor.execute(create_table_query)
-
-    # Insert data into the table
-    insert_query = f'INSERT INTO "{table_name}" (data) VALUES (%s)'
-    cursor.execute(insert_query, (data,))
-    conn.commit()
-
-    cursor.close()
-    conn.close()
-
 # Specify the directory where the result files will be saved
 result_directory = r"C:\Users\mosic\OneDrive\Desktop\Amazon\Amazon Results"
 
@@ -76,8 +53,8 @@ for scanner_name, command in scanner_commands.items():
     file_name = f"{scanner_name}_results.txt"
     execute_scanner(scanner_name, command, result_directory, file_name)
 
-    # Read the result file and export data to the respective table
+    # Read the result file
     file_path = os.path.join(result_directory, file_name)
     data = read_results(file_path)
-    export_to_postgres(data, scanner_name)
     logging.info(f"Data from {file_path} exported to {scanner_name} table.")
+
