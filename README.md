@@ -4,7 +4,6 @@
 <br>Nmap<br>	
 <br>CT Exposer<br>
 <br>FFUF<br>
-<br>SQLMAP<br>
 <br>XSStrike<br> 
 <br>OWASP Zap<br>
 <br>Burp Suite<br>
