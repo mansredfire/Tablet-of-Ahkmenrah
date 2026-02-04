@@ -1064,84 +1064,6 @@ Phase 3: Mutation-based on discovered corpus (ongoing)
 
 ---
 
-## 💼 Tools by Company Type
-
-### **FAANG (Google, Meta, Amazon, Apple, Netflix)**
-**Focus:** Scale, automation, cloud-native, fuzzing
-
-**Primary Tools:**
-- Burp Suite Professional
-- Nuclei (with custom templates)
-- Prowler/ScoutSuite
-- Snyk/Trivy
-- AFL++/LibFuzzer (security research)
-- Metasploit
-- Nmap
-- Frida (mobile)
-- Ghidra (reverse engineering)
-- Windows + VirtualBox (testing environment)
-
-### **Fintech (Stripe, Coinbase, Square, PayPal)**
-**Focus:** API security, compliance, data protection
-
-**Primary Tools:**
-- Burp Suite Professional
-- Postman
-- Kiterunner
-- Nuclei
-- Prowler
-- Trivy
-- Snyk
-- Checkmarx
-- Windows (enterprise environment)
-
-### **Mobile Companies (Uber, Lyft, DoorDash)**
-**Focus:** Mobile app security, APIs
-
-**Primary Tools:**
-- Android Studio
-- ADB
-- JADX
-- APKTool
-- Frida
-- MobSF
-- Burp Suite
-- Postman
-- Windows/macOS (development)
-
-### **Security Companies (CrowdStrike, Palo Alto, Cloudflare)**
-**Focus:** Advanced exploitation, threat research, C2
-
-**Primary Tools:**
-- Burp Suite
-- Metasploit
-- Sliver
-- Ghidra
-- AFL++
-- Frida
-- IDA Pro
-- VirtualBox (malware analysis)
-- Windows (primary target OS)
-
-### **Bug Bounty Platforms (HackerOne, Bugcrowd, Synack)**
-**Focus:** Comprehensive web/API/mobile testing
-
-**Primary Tools:**
-- Burp Suite Professional
-- Nuclei
-- Ffuf
-- Amass/Subfinder
-- Katana
-- SQLMap
-- Arjun
-- GAU
-- LinkFinder
-- JADX/APKTool (mobile)
-- ADB
-- Windows + Kali (dual boot)
-
----
-
 ## 📈 Trending Tools (2023-2024)
 
 **Fastest Growing in Job Postings:**
@@ -1164,7 +1086,7 @@ Phase 3: Mutation-based on discovered corpus (ongoing)
 ### **If you're learning ONE tool:**
 → Start with **Burp Suite Professional**
 
-### **Building your first toolkit (7 tools):**
+### **Building your first toolkit (16+ tools):**
 1. Burp Suite
 2. Nmap
 3. Nuclei
@@ -1181,6 +1103,9 @@ Phase 3: Mutation-based on discovered corpus (ongoing)
 14. HongFuzz
 15. OWASPZAP
 16. Postman
+17. Windows OS
+18. Kali Linux
+19. VirtualBox
 
 ### **Mobile Security Starter Kit (9 tools):**
 1. Android Studio
@@ -1200,6 +1125,7 @@ Phase 3: Mutation-based on discovered corpus (ongoing)
 2. LibFuzzer
 3. Honggfuzz
 4. Radamsa
+5. Mutators
 
 ### **Essential Lab Setup:**
 1. Windows (Host OS)
