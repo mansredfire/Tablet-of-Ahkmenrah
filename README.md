@@ -1420,31 +1420,6 @@ docker run -it -p 8000:8000 opensecurity/mobile-security-framework-mobsf
 
 ---
 
-## 📚 Tool Categories Summary
-
-| Category | Tool Count | Top Tools |
-|----------|------------|-----------|
-| Network Scanning | 8 | Nmap, Nessus, Wireshark |
-| Subdomain Enum | 5 | Amass, Subfinder, Subjack |
-| Web Crawling | 4 | Katana, GAU, GoSpider |
-| Directory Discovery | 5 | Ffuf, Gobuster, Feroxbuster |
-| Web App Security | 5 | Burp Suite, OWASP ZAP, Nuclei |
-| Parameter Discovery | 2 | Arjun, Kiterunner |
-| API Testing | 4 | Postman, Kiterunner, Insomnia |
-| GraphQL | 3 | InQL, GraphQLmap, CrackQL |
-| SQL Injection | 2 | SQLMap, NoSQLMap |
-| XSS Detection | 3 | XSStrike, XSSHunter, Dalfox |
-| SSRF/OOB | 3 | Interactsh, SSRFmap, Burp Collaborator |
-| JavaScript Analysis | 5 | LinkFinder, JSFinder, SecretFinder |
-| Cloud Security | 6 | Prowler, ScoutSuite, Trivy |
-| Container/K8s | 4 | Trivy, kube-bench, Grype |
-| Dependency Scanning | 4 | Snyk, OWASP Dep-Check, Safety |
-| SAST/DAST | 3 | Checkmarx, Fortify, Veracode |
-| Exploitation/C2 | 4 | Metasploit, Sliver, Merlin, Pacu |
-| Fuzzing | 4 | AFL++, LibFuzzer, Honggfuzz, Radamsa |
-| Mobile Security | 5 | Android Studio, ADB, MobSF, Frida |
-| Android RE | 7 | JADX, APKTool, dex2jar, Androguard |
-| OSINT/Recon | 5 | Recon-ng, theHarvester, Shodan, Maltego |
 | Reverse Engineering | 4 | Ghidra, IDA Pro, Radare2, Hopper |
 | Virtualization/OS | 3 | VirtualBox, Kali Linux, Windows |
 | **Total** | **100** | **Unique Tools** |
