@@ -1171,21 +1171,16 @@ Phase 3: Mutation-based on discovered corpus (ongoing)
 4. Ffuf
 5. SQLMap
 6. Metasploit
-7. Ghidra
-
-### **Bug Bounty Starter Kit (12 tools):**
-1. Burp Suite
-2. Nuclei
-3. Ffuf
-4. Katana
-5. Amass/Subfinder
-6. GAU
-7. LinkFinder
-8. SQLMap
-9. Arjun
-10. Interactsh
-11. XSSHunter
-12. Dalfox
+7. XSSHunter
+8. Arjun
+9. CTLogExposer
+10. Subfinder/Sublister
+11. MetaSploit
+12. AFL++
+13. LibFuZZ
+14. HongFuzz
+15. OWASPZAP
+16. Postman
 
 ### **Mobile Security Starter Kit (9 tools):**
 1. Android Studio
@@ -1197,38 +1192,14 @@ Phase 3: Mutation-based on discovered corpus (ongoing)
 7. Burp Suite
 8. dex2jar
 9. Drozer
-
-### **Cloud Security Starter Kit (7 tools):**
-1. Prowler
-2. ScoutSuite
-3. Trivy
-4. Burp Suite
-5. Nuclei
-6. kube-bench
-7. Snyk
-
-### **Red Team Starter Kit (8 tools):**
-1. Metasploit
-2. Sliver
-3. Merlin
-4. Burp Suite
-5. Nmap
-6. Bloodhound
-7. Impacket
-8. CrackMapExec
+10. Ghidra
+11. IDA
 
 ### **Fuzzing Starter Kit (4 tools):**
 1. AFL++
 2. LibFuzzer
 3. Honggfuzz
 4. Radamsa
-
-### **Reverse Engineering Starter Kit (5 tools):**
-1. Ghidra
-2. IDA Pro (or Free)
-3. Frida
-4. JADX (Android)
-5. APKTool (Android)
 
 ### **Essential Lab Setup:**
 1. Windows (Host OS)
