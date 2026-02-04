@@ -1,4 +1,4 @@
-# Security Tools Arsenal - Enterprise & Bug Bounty Elite Tools
+# Security Tools - Enterprise & Bug Bounty Tools
 
 ## 📋 Overview
 
